@@ -194,29 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 8. Custom Glowing Interactive Cursor Trail
-    const cursor = document.getElementById('customCursor');
-    const cursorDot = document.getElementById('customCursorDot');
-
-    if (cursor && cursorDot) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-        });
-
-        const interactives = document.querySelectorAll('a, button, input, select, textarea, .portfolio-item, .faq-header, .team-card, .gear-card');
-        interactives.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('hovered');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hovered');
-            });
-        });
-    }
-
     // 9. Scroll Progress Indicator Bar
     const progressBar = document.getElementById('scrollProgress');
     if (progressBar) {
