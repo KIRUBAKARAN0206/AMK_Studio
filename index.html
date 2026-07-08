@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AMF Studio - Premium photography, videography, audio production and editing services. Uruvakuvom ungal kanavugalai reality-il.">
+    <title>AMF Studio | Premium Creative Production & Design Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body class="home-layout">
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="logo.png" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
+                AMF <span>STUDIO</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="booking.html" class="nav-btn">Book Session</a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <p class="hero-tagline">Where Art Meets Future</p>
+            <h1 class="hero-title" style="min-height: 120px;">We Frame Your <br><span id="textRotator" style="color: var(--accent-primary); border-right: 3px solid var(--accent-primary); padding-right: 6px;">Memories</span></h1>
+            <p class="hero-desc">AMF Studio offers cutting-edge photography, cinematic videography, professional audio recording, and high-end post-production editing services designed to make your project stand out.</p>
+            <div class="hero-actions">
+                <a href="booking.html" class="btn-primary">Book Session Now</a>
+                <a href="portfolio.html" class="btn-secondary">Explore Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="bg-alt">
+        <div class="section-header reveal">
+            <span class="section-subtitle">Our Process</span>
+            <h2 class="section-title">How We Bring Your Vision To Life</h2>
+        </div>
+
+        <div class="workflow-path">
+            <!-- Step 1 -->
+            <div class="workflow-card reveal">
+                <span class="workflow-num">01</span>
+                <h3 class="workflow-title">Discovery Session</h3>
+                <p class="workflow-desc">We align on your project brief, mood board, target audience, and set the artistic direction for our production pipeline.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="workflow-card reveal">
+                <span class="workflow-num">02</span>
+                <h3 class="workflow-title">Production Day</h3>
+                <p class="workflow-desc">Equipped with state-of-the-art gear, our team executes the shoot or audio recording session under expert lighting and sound calibration.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="workflow-card reveal">
+                <span class="workflow-num">03</span>
+                <h3 class="workflow-title">Cinematic Mastering</h3>
+                <p class="workflow-desc">Our editors assemble, color grade, design soundscapes, and render final projects to strict global publishing specs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Focus / Productions Section -->
+    <section>
+        <div class="section-header reveal">
+            <span class="section-subtitle">What We Do</span>
+            <h2 class="section-title">Creative Shoots & Brand Productions</h2>
+        </div>
+
+        <div class="workflow-path">
+            <!-- Core 1 -->
+            <div class="workflow-card reveal" style="border-top: 4px solid var(--accent-primary);">
+                <i class="fa-solid fa-rectangle-ad" style="font-size: 2rem; color: var(--accent-primary); margin-bottom: 20px;"></i>
+                <h3 class="workflow-title">Brand Ad Shoots</h3>
+                <p class="workflow-desc">We design and shoot high-converting commercial advertisements, social media reels, and e-commerce product videos for modern brands.</p>
+            </div>
+            <!-- Core 2 -->
+            <div class="workflow-card reveal" style="border-top: 4px solid var(--accent-secondary);">
+                <i class="fa-solid fa-calendar-check" style="font-size: 2rem; color: var(--accent-secondary); margin-bottom: 20px;"></i>
+                <h3 class="workflow-title">Event Coverage</h3>
+                <p class="workflow-desc">Comprehensive coverage for high-profile weddings, music concerts, product launches, corporate meets, and live stage events.</p>
+            </div>
+            <!-- Core 3 -->
+            <div class="workflow-card reveal" style="border-top: 4px solid #7C3AED;">
+                <i class="fa-solid fa-camera-retro" style="font-size: 2rem; color: #7C3AED; margin-bottom: 20px;"></i>
+                <h3 class="workflow-title">Studio Photography</h3>
+                <p class="workflow-desc">Professional indoor fashion shoots, model portfolios, lookbooks, and high-end executive headshots with creative studio setups.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Spotlights Section -->
+    <section class="bg-alt">
+        <div class="section-header reveal">
+            <span class="section-subtitle">Featured Highlights</span>
+            <h2 class="section-title">Studio Masterpieces</h2>
+        </div>
+
+        <div class="spotlights-grid">
+            <!-- Spotlight 1 -->
+            <div class="spotlight-card reveal">
+                <div class="spotlight-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=600&auto=format&fit=crop" alt="Spotlight item" class="spotlight-img">
+                </div>
+                <div class="spotlight-content">
+                    <span class="spotlight-category">Photography</span>
+                    <h3 class="spotlight-title">Vogue Style Portraiture</h3>
+                    <p class="spotlight-desc">High fashion studio editorial shot featured in regional creative magazines, styled using precision neon-rim lighting.</p>
+                    <a href="portfolio.html" style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">View Shoot Details &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Spotlight 2 -->
+            <div class="spotlight-card reveal">
+                <div class="spotlight-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=600&auto=format&fit=crop" alt="Spotlight item" class="spotlight-img">
+                </div>
+                <div class="spotlight-content">
+                    <span class="spotlight-category">Videography</span>
+                    <h3 class="spotlight-title">Indie Album Music Video</h3>
+                    <p class="spotlight-desc">A full-length cinematic music video with moody grading, atmospheric depth, and custom transition assemblies.</p>
+                    <a href="portfolio.html" style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">View Video Details &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Spotlight 3 -->
+            <div class="spotlight-card reveal">
+                <div class="spotlight-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=600&auto=format&fit=crop" alt="Spotlight item" class="spotlight-img">
+                </div>
+                <div class="spotlight-content">
+                    <span class="spotlight-category">Editing & Mastering</span>
+                    <h3 class="spotlight-title">Short Film Color Grading</h3>
+                    <p class="spotlight-desc">Detailed HDR color matching using DaVinci Resolve Studio to establish custom emotional tones for narrative story arcs.</p>
+                    <a href="portfolio.html" style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">View Grading Suite &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section>
+        <div class="section-header reveal">
+            <span class="section-subtitle">Testimonials</span>
+            <h2 class="section-title">What Our Clients Say</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <!-- Card 1 -->
+            <div class="testimonial-card reveal">
+                <i class="fa-solid fa-quote-left testimonial-icon"></i>
+                <p class="testimonial-quote">"AMF Studio transformed our promotional campaign. The quality of cinematic video grading and clear audio mastering exceeded our expectations."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop" alt="Avatar" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Aishwarya Sen</h4>
+                        <p>Creative Director, TechCorp</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="testimonial-card reveal">
+                <i class="fa-solid fa-quote-left testimonial-icon"></i>
+                <p class="testimonial-quote">"The portrait photography session was absolutely professional. They managed to capture the exact mood I wanted for my upcoming music album release."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Avatar" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Vijay Kumar</h4>
+                        <p>Musician & Composer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <img src="logo.png" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
+                    AMF <span>STUDIO</span>
+                </a>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Premium social media marketing, strategy planning, creative reels development, and market research solutions.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services.html">Strategy & Planning</a></li>
+                    <li><a href="services.html">Post Reels & Dev</a></li>
+                    <li><a href="services.html">Market Research</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 63797 76173</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>officialamfstudio@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Madurai, Tamil Nadu</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 AMF Studio. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://wa.me/916379776173" class="social-icon" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

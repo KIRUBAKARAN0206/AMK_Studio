@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with AMF Studio for bookings, pricing, and project collaborations.">
+    <title>Contact Us | AMF Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body class="contact-layout">
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="logo.png" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
+                AMF <span>STUDIO</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="booking.html" class="nav-btn">Book Session</a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1 class="page-banner-title">Contact Us</h1>
+        <p class="page-banner-desc">Let's coordinate on your upcoming creative project. Book a studio slot or request a pricing catalog.</p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact">
+        <div class="contact-container reveal">
+            <div class="contact-info">
+                <div>
+                    <h2 class="contact-info-title">Let's Create Magic</h2>
+                    <p class="contact-info-desc">Have a project or concept? Fill out the details, and our producer will get in touch with you within 24 hours.</p>
+                </div>
+                
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-detail-content">
+                            <h4>Location</h4>
+                            <p>AMF Studio, Madurai, Tamil Nadu</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="contact-detail-content">
+                            <h4>Call Us</h4>
+                            <p>+91 63797 76173</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-detail-content">
+                            <h4>Email Info</h4>
+                            <p>officialamfstudio@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form" autocomplete="off">
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label">Email Address</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" id="phone" class="form-input" placeholder=" ">
+                        <label for="phone" class="form-label">Phone Number</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" class="form-input" placeholder=" " required></textarea>
+                        <label for="message" class="form-label">Message / Details</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary submit-btn">
+                        Send Message <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion section -->
+    <section class="bg-alt">
+        <div class="section-header reveal">
+            <span class="section-subtitle">FAQ</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-container">
+            <!-- FAQ 1 -->
+            <div class="faq-item reveal">
+                <div class="faq-header">
+                    <span>What is the booking policy at AMF Studio?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-content">
+                    <p>We recommend booking at least 5-7 days in advance. A 50% advance deposit is required to lock in the dates on our studio calendar. The remaining balance is payable upon delivery of project draft assets.</p>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-item reveal">
+                <div class="faq-header">
+                    <span>Do you offer raw files of photography and videography?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-content">
+                    <p>Yes, raw footage and raw photography assets are provided as standard in all our custom packages via physical hard drive handover or high-speed cloud download folders.</p>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-item reveal">
+                <div class="faq-header">
+                    <span>Can I bring my own gear or external team?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-content">
+                    <p>Absolutely. You are welcome to bring your own lenses, cameras, or creative production assistants. Our in-house operators will be present to manage basic studio lighting grids and acoustical console patching.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Hours Grid -->
+    <section>
+        <div style="max-width: 600px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 40px; text-align: center;" class="reveal">
+            <h3 style="color: #FFF; margin-bottom: 20px;"><i class="fa-regular fa-clock" style="color: var(--accent);"></i> Studio Operation Hours</h3>
+            <p style="color: var(--text-muted); margin-bottom: 10px;">Monday - Friday: 09:00 AM - 08:00 PM</p>
+            <p style="color: var(--text-muted); margin-bottom: 10px;">Saturday: 10:00 AM - 06:00 PM</p>
+            <p style="color: var(--text-muted); font-weight: 600; color: var(--accent);">Sunday: Pre-booked Sessions Only</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <img src="logo.png" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
+                    AMF <span>STUDIO</span>
+                </a>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Premium social media marketing, strategy planning, creative reels development, and market research solutions.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services.html">Strategy & Planning</a></li>
+                    <li><a href="services.html">Post Reels & Dev</a></li>
+                    <li><a href="services.html">Market Research</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 63797 76173</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>officialamfstudio@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Madurai, Tamil Nadu</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 AMF Studio. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://wa.me/916379776173" class="social-icon" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

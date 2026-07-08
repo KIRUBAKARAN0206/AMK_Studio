@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore professional photography, videography, audio production, and editing services at AMF Studio.">
+    <title>Services | AMF Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body class="services-layout">
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="logo.png" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
+                AMF <span>STUDIO</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="booking.html" class="nav-btn">Book Session</a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1 class="page-banner-title">Our Services</h1>
+        <p class="page-banner-desc">Explore the creative capabilities we bring to the table to elevate your brand and content.</p>
+    </section>
+
+    <!-- Services Detail Section -->
+    <section class="services">
+        <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            <!-- Service 1: Photography -->
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <h3 class="service-title">Professional Photography</h3>
+                <p class="service-desc">High-end shoots captured with state-of-the-art camera systems. We specialize in candid moments, weddings, and custom baby shoots.</p>
+                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
+                    <li>Candid & Portrait Photography</li>
+                    <li>Wedding & Couple Shoots</li>
+                    <li>Baby Shoot & Family Portraits</li>
+                </ul>
+            </div>
+
+            <!-- Service 2: Videography -->
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <h3 class="service-title">Cinematic Videography</h3>
+                <p class="service-desc">Cinematic filming and high-definition video captures. From cinematic storytelling and teasers to commercial video editing.</p>
+                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
+                    <li>Cinematic Wedding Film Production</li>
+                    <li>Documentaries & Event Teasers</li>
+                    <li>High-end Post Color Grading</li>
+                </ul>
+            </div>
+
+            <!-- Service 3: Brand Ad Shoots -->
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fa-solid fa-rectangle-ad"></i>
+                </div>
+                <h3 class="service-title">Brand Ad Shoots</h3>
+                <p class="service-desc">We conceptualize, shoot, and edit commercial advertisements and product promos that boost conversion rates and build brand identity.</p>
+                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
+                    <li>Commercial Concept Writing</li>
+                    <li>Product Videography & Ads</li>
+                    <li>Digital Ad Campaigns</li>
+                </ul>
+            </div>
+
+            <!-- Service 4: Event Campaigns -->
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fa-solid fa-calendar-day"></i>
+                </div>
+                <h3 class="service-title">Event Coverage</h3>
+                <p class="service-desc">Comprehensive visual coverage for concerts, festivals, corporate launchings, and large-scale public events.</p>
+                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
+                    <li>Concert & Music Festival Filming</li>
+                    <li>Corporate Events & Launchings</li>
+                    <li>Live Stage Multi-Cam setups</li>
+                </ul>
+            </div>
+
+            <!-- Service 5: Strategy & Planning -->
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fa-solid fa-compass-drafting"></i>
+                </div>
+                <h3 class="service-title">Strategy & Planning</h3>
+                <p class="service-desc">We structure customized brand strategies, complete content calendars, and target audience maps designed to grow your digital footprint.</p>
+                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
+                    <li>Brand Positioning & Strategy</li>
+                    <li>Weekly Content Calendars</li>
+                    <li>Platform Growth Mapping</li>
+                </ul>
+            </div>
+
+            <!-- Service 6: Post Reels & Development -->
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fa-solid fa-photo-film"></i>
+                </div>
+                <h3 class="service-title">Post Reels & Development</h3>
+                <p class="service-desc">From shooting high-quality vertical videos to scripting, caption drafting, editing, and publishing engaging Instagram Reels & YouTube Shorts.</p>
+                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
+                    <li>High-impact Reels & Shorts Shooting</li>
+                    <li>Professional Video Editing & VFX</li>
+                    <li>Caption & Hashtag Development</li>
+                </ul>
+            </div>
+
+            <!-- Service 7: Market Research -->
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="service-title">Market Research</h3>
+                <p class="service-desc">We perform detailed competitor tracking, monitor algorithm changes, and analyze trending audio to optimize your post performance.</p>
+                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
+                    <li>Competitor Analysis & Reports</li>
+                    <li>Trending Audio & Sound Search</li>
+                    <li>Audience Performance Analytics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="bg-alt">
+        <div class="section-header reveal">
+            <span class="section-subtitle">Flexible Rates</span>
+            <h2 class="section-title">Transparent Package Pricing</h2>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Plan 1 -->
+            <div class="pricing-card reveal">
+                <h3 class="pricing-plan">Creative Starter</h3>
+                <div class="pricing-price">&#8377;9,999<span style="font-size: 0.9rem; color: var(--text-muted);"> / session</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> 2-Hour Studio Booking</li>
+                    <li><i class="fa-solid fa-check"></i> 15 High-res Edited Photos</li>
+                    <li><i class="fa-solid fa-check"></i> Basic Color Correction</li>
+                    <li><i class="fa-solid fa-check"></i> 1 Audio Vocal Track Mix</li>
+                    <li><i class="fa-solid fa-check"></i> Raw Deliverables Access</li>
+                </ul>
+                <a href="contact.html" class="btn-secondary" style="display: block; width: 100%; text-align: center;">Choose Plan</a>
+            </div>
+
+            <!-- Plan 2 -->
+            <div class="pricing-card popular reveal">
+                <div class="pricing-badge">Popular</div>
+                <h3 class="pricing-plan">Production Pro</h3>
+                <div class="pricing-price">&#8377;24,999<span style="font-size: 0.9rem; color: #000;"> / project</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Full Day Studio Access</li>
+                    <li><i class="fa-solid fa-check"></i> Unlimited Camera bays & Rig</li>
+                    <li><i class="fa-solid fa-check"></i> Cinematic Video Color Grading</li>
+                    <li><i class="fa-solid fa-check"></i> Multitrack Audio Mixing & Mastering</li>
+                    <li><i class="fa-solid fa-check"></i> 2 rounds of edits & corrections</li>
+                </ul>
+                <a href="contact.html" class="btn-primary" style="display: block; width: 100%; text-align: center; color: #000;">Book Production</a>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="pricing-card reveal">
+                <h3 class="pricing-plan">Commercial Master</h3>
+                <div class="pricing-price">&#8377;49,999<span style="font-size: 0.9rem; color: var(--text-muted);"> / project</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Multi-day Booking slots</li>
+                    <li><i class="fa-solid fa-check"></i> Dedicated Director & Sound Lead</li>
+                    <li><i class="fa-solid fa-check"></i> Advanced VFX & Sound Design</li>
+                    <li><i class="fa-solid fa-check"></i> Broadcast/DCP Ready Deliverables</li>
+                    <li><i class="fa-solid fa-check"></i> Lifetime archive storage support</li>
+                </ul>
+                <a href="contact.html" class="btn-secondary" style="display: block; width: 100%; text-align: center;">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gear inventory section -->
+    <section>
+        <div class="section-header reveal">
+            <span class="section-subtitle">Our Arsenal</span>
+            <h2 class="section-title">State-of-the-Art Gear & Facilities</h2>
+        </div>
+
+        <div class="gear-grid">
+            <div class="gear-card reveal">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h4 class="gear-name">Sony FX6 / RED Komodo</h4>
+                <p class="gear-type">Cinema Video Rigs</p>
+            </div>
+            <div class="gear-card reveal">
+                <i class="fa-solid fa-microphone"></i>
+                <h4 class="gear-name">Neumann U87 Ai</h4>
+                <p class="gear-type">Vocal Studio Microphone</p>
+            </div>
+            <div class="gear-card reveal">
+                <i class="fa-solid fa-sliders"></i>
+                <h4 class="gear-name">SSL Origin Analog</h4>
+                <p class="gear-type">Mixing Sound Console</p>
+            </div>
+            <div class="gear-card reveal">
+                <i class="fa-solid fa-computer"></i>
+                <h4 class="gear-name">DaVinci Advanced Panel</h4>
+                <p class="gear-type">Post-Color Suite</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <img src="logo.png" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
+                    AMF <span>STUDIO</span>
+                </a>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Premium social media marketing, strategy planning, creative reels development, and market research solutions.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="services.html">Strategy & Planning</a></li>
+                    <li><a href="services.html">Post Reels & Dev</a></li>
+                    <li><a href="services.html">Market Research</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 63797 76173</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>officialamfstudio@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Madurai, Tamil Nadu</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 AMF Studio. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://wa.me/916379776173" class="social-icon" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
