@@ -1612,13 +1612,13 @@ footer {
     animation-delay: 3s;
 }
 
-.team-card, .gear-card, .price-card, .portfolio-item {
+.team-card, .gear-card, .price-card, .portfolio-item, .founder-image-wrapper {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 border-color 0.4s ease;
 }
 
-.team-card:hover, .gear-card:hover, .price-card:hover {
+.team-card:hover, .gear-card:hover, .price-card:hover, .founder-image-wrapper:hover {
     transform: translateY(-8px) scale(1.02) !important;
     box-shadow: 0 15px 35px rgba(255, 0, 127, 0.2) !important;
     border-color: var(--accent-primary) !important;
