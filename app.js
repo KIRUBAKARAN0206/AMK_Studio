@@ -34,19 +34,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Sticky Navbar Styling on Scroll
     const navbar = document.getElementById('navbar');
+    // 3. Navbar scroll effect
+    let scrollTimeout;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        if (!scrollTimeout) {
+            scrollTimeout = requestAnimationFrame(() => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                scrollTimeout = null;
+            });
         }
-    });
+    }, { passive: true });
 
     // 3. Scroll Reveal Animation (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                const delay = entry.target.getAttribute('data-delay');
+                if (delay) {
+                    entry.target.style.transitionDelay = delay + 'ms';
+                }
                 entry.target.classList.add('active');
                 observer.unobserve(entry.target); // Trigger once
             }
@@ -93,27 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. FAQ Accordion Toggle Logic
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const header = item.querySelector('.faq-header');
-        const content = item.querySelector('.faq-content');
 
-        header.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            
-            // Close other items
-            faqItems.forEach(el => {
-                el.classList.remove('active');
-                el.querySelector('.faq-content').style.maxHeight = null;
-            });
-
-            if (!isActive) {
-                item.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + 'px';
-            }
-        });
-    });
 
     // 6. Contact Form Validation and Submission Experience
     const contactForm = document.getElementById('contactForm');
@@ -207,12 +198,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // 9. Scroll Progress Indicator Bar
     const progressBar = document.getElementById('scrollProgress');
     if (progressBar) {
+        let pbScrollTimeout;
         window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + '%';
-        });
+            if (!pbScrollTimeout) {
+                pbScrollTimeout = requestAnimationFrame(() => {
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    progressBar.style.width = scrolled + '%';
+                    pbScrollTimeout = null;
+                });
+            }
+        }, { passive: true });
     }
 
     // 10. Typewriter Text Rotator Logic
@@ -285,101 +282,106 @@ const serviceDetails = {
     },
     'wedding': {
         title: 'Wedding Function',
-        icon: '<div class="success-icon-wrapper" style="box-shadow: 0 0 20px rgba(124, 58, 237, 0.4); background: rgba(124, 58, 237, 0.1);"><i class="fa-solid fa-ring" style="color: #7C3AED; font-size: 2.5rem;"></i></div>',
+        icon: '', /* Icon moved inside content for better header layout */
         content: `
-            <h3 style="margin-bottom: 15px; font-size: 2rem; color: #fff;">Wedding Packages</h3>
-            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">Cinematic wedding coverage capturing your special moments beautifully. Choose a package that suits your grand day.</p>
+            <div class="wedding-modal-bg-glow"></div>
+            <div class="wedding-header">
+                <div class="wedding-icon-wrapper"><i class="fa-solid fa-ring" style="color: #D4AF37; font-size: 2.5rem;"></i></div>
+                <h3 class="wedding-title">Wedding Packages</h3>
+                <div class="wedding-divider"></div>
+                <p class="wedding-desc">Cinematic wedding coverage capturing your special moments beautifully. Choose a package that suits your grand day.</p>
+            </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left; margin-bottom: 20px;">
+            <div class="wedding-packages-grid">
                 
                 <!-- Package 35k -->
-                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 15px; padding: 25px;">
-                    <div style="color: #7C3AED; font-size: 1.6rem; font-weight: bold; margin-bottom: 15px;">₹35,000/-</div>
-                    <ul style="color: #fff; font-size: 0.95rem; list-style: none; padding: 0; margin-bottom: 15px;">
-                        <li><i class="fa-solid fa-camera" style="color: #10B981; margin-right: 8px;"></i> Traditional Photo</li>
-                        <li><i class="fa-solid fa-video" style="color: #10B981; margin-right: 8px;"></i> Traditional Video</li>
+                <div class="wedding-pack-card">
+                    <div class="wedding-price">₹35,000/-</div>
+                    <ul class="wedding-list">
+                        <li><i class="fa-solid fa-camera"></i> <span>Traditional Photo</span></li>
+                        <li><i class="fa-solid fa-video"></i> <span>Traditional Video</span></li>
                     </ul>
-                    <h5 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 0.95rem;">Deliverables:</h5>
-                    <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Unlimited photos</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Album 36x12 (280) - 80 Pages</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> HQ video with pendrive</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Family Photo Frame - 2nos</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Couple Photo Frame - 1no</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Calendar - 1no</li>
+                    <h5 class="wedding-deliverables-title">Deliverables:</h5>
+                    <ul class="wedding-deliverables">
+                        <li><i class="fa-solid fa-gift"></i> <span>Unlimited photos</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Album 36x12 (280) - 80 Pages</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>HQ video with pendrive</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Family Photo Frame - 2nos</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Couple Photo Frame - 1no</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Calendar - 1no</span></li>
                     </ul>
                 </div>
 
                 <!-- Package 55k -->
-                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(124, 58, 237, 0.5); border-radius: 15px; padding: 25px;">
-                    <div style="color: #7C3AED; font-size: 1.6rem; font-weight: bold; margin-bottom: 15px;">₹55,000/-</div>
-                    <ul style="color: #fff; font-size: 0.95rem; list-style: none; padding: 0; margin-bottom: 15px;">
-                        <li><i class="fa-solid fa-camera" style="color: #10B981; margin-right: 8px;"></i> Traditional Photo</li>
-                        <li><i class="fa-solid fa-video" style="color: #10B981; margin-right: 8px;"></i> Traditional Video</li>
-                        <li><i class="fa-solid fa-camera-retro" style="color: #10B981; margin-right: 8px;"></i> Candid Photo</li>
-                        <li><i class="fa-solid fa-heart" style="color: #10B981; margin-right: 8px;"></i> Post Wedding Shoot</li>
+                <div class="wedding-pack-card">
+                    <div class="wedding-price">₹55,000/-</div>
+                    <ul class="wedding-list">
+                        <li><i class="fa-solid fa-camera"></i> <span>Traditional Photo</span></li>
+                        <li><i class="fa-solid fa-video"></i> <span>Traditional Video</span></li>
+                        <li><i class="fa-solid fa-camera-retro"></i> <span>Candid Photo</span></li>
+                        <li><i class="fa-solid fa-heart"></i> <span>Post Wedding Shoot</span></li>
                     </ul>
-                    <h5 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 0.95rem;">Deliverables:</h5>
-                    <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Unlimited photos</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Album 36x12 (330) - 100 Pages</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> HQ video with pendrive</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Family Photo Frame - 2no's</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Couple Photo Frame - 1no</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Calendar - 2no's</li>
+                    <h5 class="wedding-deliverables-title">Deliverables:</h5>
+                    <ul class="wedding-deliverables">
+                        <li><i class="fa-solid fa-gift"></i> <span>Unlimited photos</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Album 36x12 (330) - 100 Pages</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>HQ video with pendrive</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Family Photo Frame - 2no's</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Couple Photo Frame - 1no</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Calendar - 2no's</span></li>
                     </ul>
                 </div>
 
                 <!-- Package 85k -->
-                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(124, 58, 237, 0.7); border-radius: 15px; padding: 25px; box-shadow: 0 0 20px rgba(124,58,237,0.15);">
-                    <div style="color: #7C3AED; font-size: 1.6rem; font-weight: bold; margin-bottom: 15px;">₹85,000/-</div>
-                    <ul style="color: #fff; font-size: 0.95rem; list-style: none; padding: 0; margin-bottom: 15px;">
-                        <li><i class="fa-solid fa-camera" style="color: #10B981; margin-right: 8px;"></i> Traditional Photo</li>
-                        <li><i class="fa-solid fa-video" style="color: #10B981; margin-right: 8px;"></i> Traditional Video</li>
-                        <li><i class="fa-solid fa-camera-retro" style="color: #10B981; margin-right: 8px;"></i> Candid Photo</li>
-                        <li><i class="fa-solid fa-film" style="color: #10B981; margin-right: 8px;"></i> Candid Video</li>
-                        <li><i class="fa-solid fa-heart" style="color: #10B981; margin-right: 8px;"></i> Post Wedding Shoot</li>
+                <div class="wedding-pack-card">
+                    <div class="wedding-price">₹85,000/-</div>
+                    <ul class="wedding-list">
+                        <li><i class="fa-solid fa-camera"></i> <span>Traditional Photo</span></li>
+                        <li><i class="fa-solid fa-video"></i> <span>Traditional Video</span></li>
+                        <li><i class="fa-solid fa-camera-retro"></i> <span>Candid Photo</span></li>
+                        <li><i class="fa-solid fa-film"></i> <span>Candid Video</span></li>
+                        <li><i class="fa-solid fa-heart"></i> <span>Post Wedding Shoot</span></li>
                     </ul>
-                    <h5 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 0.95rem;">Deliverables:</h5>
-                    <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Unlimited photos</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Album 36x12 (350) - 100 Pages</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Candid Album (150) - 50 Pages</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> HQ video with pendrive</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Candid Video</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Family Frame (2), Couple Frame (1)</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Calendar - 2no's</li>
+                    <h5 class="wedding-deliverables-title">Deliverables:</h5>
+                    <ul class="wedding-deliverables">
+                        <li><i class="fa-solid fa-gift"></i> <span>Unlimited photos</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Album 36x12 (350) - 100 Pages</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Candid Album (150) - 50 Pages</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>HQ video with pendrive</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Candid Video</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Family Frame (2), Couple Frame (1)</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Calendar - 2no's</span></li>
                     </ul>
                 </div>
 
                 <!-- Package 1.15L -->
-                <div style="background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 1); border-radius: 15px; padding: 25px; box-shadow: 0 0 30px rgba(124,58,237,0.3); position: relative;">
-                    <div style="position: absolute; top: -12px; right: 20px; background: #7C3AED; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">Premium</div>
-                    <div style="color: #7C3AED; font-size: 1.6rem; font-weight: bold; margin-bottom: 15px;">₹1,15,000/-</div>
-                    <ul style="color: #fff; font-size: 0.95rem; list-style: none; padding: 0; margin-bottom: 15px;">
-                        <li><i class="fa-solid fa-camera" style="color: #10B981; margin-right: 8px;"></i> Traditional Photo</li>
-                        <li><i class="fa-solid fa-video" style="color: #10B981; margin-right: 8px;"></i> Traditional Video</li>
-                        <li><i class="fa-solid fa-camera-retro" style="color: #10B981; margin-right: 8px;"></i> Candid Photo</li>
-                        <li><i class="fa-solid fa-film" style="color: #10B981; margin-right: 8px;"></i> Candid Video</li>
-                        <li><i class="fa-solid fa-plane-up" style="color: #10B981; margin-right: 8px;"></i> Drone</li>
-                        <li><i class="fa-solid fa-heart" style="color: #10B981; margin-right: 8px;"></i> Pre & Post Wedding Shoot</li>
+                <div class="wedding-pack-card">
+                    <div class="wedding-premium-badge">Premium</div>
+                    <div class="wedding-price">₹1,15,000/-</div>
+                    <ul class="wedding-list">
+                        <li><i class="fa-solid fa-camera"></i> <span>Traditional Photo</span></li>
+                        <li><i class="fa-solid fa-video"></i> <span>Traditional Video</span></li>
+                        <li><i class="fa-solid fa-camera-retro"></i> <span>Candid Photo</span></li>
+                        <li><i class="fa-solid fa-film"></i> <span>Candid Video</span></li>
+                        <li><i class="fa-solid fa-plane-up"></i> <span>Drone</span></li>
+                        <li><i class="fa-solid fa-heart"></i> <span>Pre & Post Wedding Shoot</span></li>
                     </ul>
-                    <h5 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 0.95rem;">Deliverables:</h5>
-                    <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Unlimited photos</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Album 36x12 (400) - 120 Pages</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Candid Album (180) - 60 Pages</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> HQ video with pendrive</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Candid Video</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Family Frame (2), Couple Frame (1)</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Calendar - 2no's</li>
-                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Mug - 1no</li>
+                    <h5 class="wedding-deliverables-title">Deliverables:</h5>
+                    <ul class="wedding-deliverables">
+                        <li><i class="fa-solid fa-gift"></i> <span>Unlimited photos</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Album 36x12 (400) - 120 Pages</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Candid Album (180) - 60 Pages</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>HQ video with pendrive</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Candid Video</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Family Frame (2), Couple Frame (1)</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Calendar - 2no's</span></li>
+                        <li><i class="fa-solid fa-gift"></i> <span>Mug - 1no</span></li>
                     </ul>
                 </div>
 
             </div>
             
-            <div style="background: rgba(255, 204, 0, 0.1); border: 1px solid rgba(255, 204, 0, 0.3); padding: 15px; border-radius: 10px; text-align: left; font-size: 0.9rem; color: #fff;">
+            <div style="background: rgba(255, 204, 0, 0.1); border: 1px solid rgba(255, 204, 0, 0.3); padding: 15px; border-radius: 10px; text-align: left; font-size: 0.9rem; color: #fff; margin-top: 20px; position: relative; z-index: 1;">
                 <i class="fa-solid fa-circle-info" style="color: #FFC107; margin-right: 8px;"></i> <strong>Note:</strong> Transport and Accommodation charges are extra.
             </div>
         `
@@ -389,8 +391,22 @@ const serviceDetails = {
 window.openServiceModal = function(serviceId) {
     const modal = document.getElementById('serviceModal');
     const contentDiv = document.getElementById('modal-content');
+    const closeBtn = document.getElementById('closeServiceModal');
     if (modal && contentDiv && serviceDetails[serviceId]) {
         contentDiv.innerHTML = serviceDetails[serviceId].icon + serviceDetails[serviceId].content;
+        
+        const modalCard = modal.querySelector('.modal-card');
+        
+        if(serviceId === 'wedding') {
+            modalCard.classList.add('wedding-modal-active');
+            closeBtn.className = 'wedding-close-btn';
+            closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        } else {
+            modalCard.classList.remove('wedding-modal-active');
+            closeBtn.className = '';
+            closeBtn.innerHTML = '&times;';
+        }
+        
         modal.classList.add('active');
     }
 };

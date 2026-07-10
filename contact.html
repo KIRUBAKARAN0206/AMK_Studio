@@ -6,13 +6,17 @@
     <meta name="description" content="Get in touch with AMF Studio for bookings, pricing, and project collaborations.">
     <title>Contact Us | AMF Studio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact-premium.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <link rel="preload" href="assets/images/portfolio/event-1.webp" as="image" fetchpriority="high">
 </head>
 <body class="contact-layout">
     <!-- Preloader -->
     <div id="preloader">
-        <img src="logo.png" alt="AMF Studio Logo" class="preloader-logo">
+        <img src="logo.webp" alt="AMF Studio Logo" class="preloader-logo">
+        <div class="preloader-text">AMF <span>STUDIO</span></div>
     </div>
     <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -20,7 +24,7 @@
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
+                <img src="logo.webp" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
                 AMF <span>STUDIO</span>
             </a>
             
@@ -44,133 +48,177 @@
         </div>
     </header>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <h1 class="page-banner-title">Contact Us</h1>
-        <p class="page-banner-desc">Let's coordinate on your upcoming creative project. Book a studio slot or request a pricing catalog.</p>
+    <!-- 1. Premium Hero -->
+    <section class="contact-hero-hub">
+        <div class="hero-hub-bg"></div>
+        <div class="hero-hub-overlay"></div>
+        <div class="gold-light-sweep"></div>
+        <div class="hero-hub-content gsap-reveal">
+            <span class="gold-label">Get in Touch</span>
+            <h1 class="hero-hub-title">Let's Turn Your Vision Into a Cinematic Experience</h1>
+            <div class="hero-hub-line"></div>
+            <p class="hero-hub-subtitle">Coordinate on your upcoming creative project. Book a studio slot, request a pricing catalog, or simply drop us a line.</p>
+            <div class="hero-hub-actions">
+                <a href="#contact-workspace" class="btn-premium-hub">Start a Project</a>
+                <a href="tel:+916379776173" class="btn-outline-hub">Call Us</a>
+            </div>
+        </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact">
-        <div class="contact-container reveal">
-            <div class="contact-info">
-                <div>
-                    <h2 class="contact-info-title">Let's Create Magic</h2>
-                    <p class="contact-info-desc">Have a project or concept? Fill out the details, and our producer will get in touch with you within 24 hours.</p>
+    <!-- 2. Main Contact Workspace -->
+    <section id="contact-workspace" class="contact-workspace-section">
+        <div class="workspace-grid">
+            <!-- Left: Form -->
+            <div class="workspace-left gsap-reveal">
+                <h2 class="workspace-title">Tell Us About Your Project</h2>
+                <div class="premium-form-panel">
+                    <form id="contactForm" autocomplete="off">
+                        <div class="form-group-hub">
+                            <input type="text" id="name" class="form-input-hub" placeholder=" " required>
+                            <label for="name" class="form-label-hub">Full Name</label>
+                        </div>
+                        <div class="form-group-hub">
+                            <input type="email" id="email" class="form-input-hub" placeholder=" " required>
+                            <label for="email" class="form-label-hub">Email Address</label>
+                        </div>
+                        <div class="form-group-hub">
+                            <input type="tel" id="phone" class="form-input-hub" placeholder=" ">
+                            <label for="phone" class="form-label-hub">Phone Number</label>
+                        </div>
+                        <div class="form-group-hub">
+                            <textarea id="message" class="form-input-hub" placeholder=" " required></textarea>
+                            <label for="message" class="form-label-hub">Message / Project Details</label>
+                        </div>
+                        <button type="submit" class="btn-submit-hub submit-btn">
+                            Submit Request <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
                 </div>
-                
-                <div class="contact-details">
-                    <div class="contact-detail-item">
-                        <div class="contact-detail-icon">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div class="contact-detail-content">
-                            <h4>Location</h4>
-                            <p>AMF Studio, Madurai, Tamil Nadu</p>
-                        </div>
-                    </div>
+            </div>
 
-                    <div class="contact-detail-item">
-                        <div class="contact-detail-icon">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div class="contact-detail-content">
-                            <h4>Call Us</h4>
+            <!-- Right: Vertical Timeline Info -->
+            <div class="workspace-right gsap-reveal">
+                <div class="vertical-contact-flow">
+                    <div class="flow-item gsap-stagger">
+                        <div class="flow-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="flow-content">
+                            <h4>Phone</h4>
                             <p>+91 63797 76173</p>
                         </div>
                     </div>
-
-                    <div class="contact-detail-item">
-                        <div class="contact-detail-icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="contact-detail-content">
-                            <h4>Email Info</h4>
+                    <div class="flow-item gsap-stagger">
+                        <div class="flow-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="flow-content">
+                            <h4>Email</h4>
                             <p>officialamfstudio@gmail.com</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="contact-form-wrapper">
-                <form id="contactForm" class="contact-form" autocomplete="off">
-                    <div class="form-group-row">
-                        <div class="form-group">
-                            <input type="text" id="name" class="form-input" placeholder=" " required>
-                            <label for="name" class="form-label">Full Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" class="form-input" placeholder=" " required>
-                            <label for="email" class="form-label">Email Address</label>
+                    <div class="flow-item gsap-stagger">
+                        <div class="flow-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="flow-content">
+                            <h4>Office</h4>
+                            <p>AMF Studio, Madurai, Tamil Nadu, India</p>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <input type="tel" id="phone" class="form-input" placeholder=" ">
-                        <label for="phone" class="form-label">Phone Number</label>
+                    <div class="flow-item gsap-stagger">
+                        <div class="flow-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div class="flow-content">
+                            <h4>Hours</h4>
+                            <p>Mon-Fri: 09:00 AM - 08:00 PM<br>Sat: 10:00 AM - 06:00 PM</p>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <textarea id="message" class="form-input" placeholder=" " required></textarea>
-                        <label for="message" class="form-label">Message / Details</label>
-                    </div>
-
-                    <button type="submit" class="btn-primary submit-btn">
-                        Send Message <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Accordion section -->
-    <section class="bg-alt">
-        <div class="section-header reveal">
-            <span class="section-subtitle">FAQ</span>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-        </div>
-
-        <div class="faq-container">
-            <!-- FAQ 1 -->
-            <div class="faq-item reveal">
-                <div class="faq-header">
-                    <span>What is the booking policy at AMF Studio?</span>
-                    <i class="fa-solid fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-content">
-                    <p>We recommend booking at least 5-7 days in advance. A 50% advance deposit is required to lock in the dates on our studio calendar. The remaining balance is payable upon delivery of project draft assets.</p>
-                </div>
-            </div>
-            <!-- FAQ 2 -->
-            <div class="faq-item reveal">
-                <div class="faq-header">
-                    <span>Do you offer raw files of photography and videography?</span>
-                    <i class="fa-solid fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-content">
-                    <p>Yes, raw footage and raw photography assets are provided as standard in all our custom packages via physical hard drive handover or high-speed cloud download folders.</p>
-                </div>
-            </div>
-            <!-- FAQ 3 -->
-            <div class="faq-item reveal">
-                <div class="faq-header">
-                    <span>Can I bring my own gear or external team?</span>
-                    <i class="fa-solid fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-content">
-                    <p>Absolutely. You are welcome to bring your own lenses, cameras, or creative production assistants. Our in-house operators will be present to manage basic studio lighting grids and acoustical console patching.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Studio Hours Grid -->
-    <section>
-        <div style="max-width: 600px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 40px; text-align: center;" class="reveal">
-            <h3 style="color: #FFF; margin-bottom: 20px;"><i class="fa-regular fa-clock" style="color: var(--accent);"></i> Studio Operation Hours</h3>
-            <p style="color: var(--text-muted); margin-bottom: 10px;">Monday - Friday: 09:00 AM - 08:00 PM</p>
-            <p style="color: var(--text-muted); margin-bottom: 10px;">Saturday: 10:00 AM - 06:00 PM</p>
-            <p style="color: var(--text-muted); font-weight: 600; color: var(--accent);">Sunday: Pre-booked Sessions Only</p>
+    <!-- 3. Quick Contact Actions -->
+    <section class="quick-actions-section">
+        <div class="quick-actions-grid">
+            <a href="tel:+916379776173" class="action-card gsap-stagger">
+                <div class="action-card-inner">
+                    <i class="fa-solid fa-phone-volume action-icon"></i>
+                    <div class="action-text">
+                        <h4>Call Our Team</h4>
+                        <p>Speak directly with us</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-right action-arrow"></i>
+            </a>
+            <a href="mailto:officialamfstudio@gmail.com" class="action-card gsap-stagger">
+                <div class="action-card-inner">
+                    <i class="fa-solid fa-envelope-open-text action-icon"></i>
+                    <div class="action-text">
+                        <h4>Send an Email</h4>
+                        <p>officialamfstudio@gmail.com</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-right action-arrow"></i>
+            </a>
+            <a href="booking.html" class="action-card gsap-stagger">
+                <div class="action-card-inner">
+                    <i class="fa-regular fa-calendar-check action-icon"></i>
+                    <div class="action-text">
+                        <h4>Book a Consultation</h4>
+                        <p>Schedule a studio visit</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-right action-arrow"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 4. Project Types Section -->
+    <section class="project-types-section">
+        <h3 class="section-title-hub gsap-reveal">What Are You Planning?</h3>
+        <div class="project-chips-container gsap-reveal">
+            <span class="project-chip">Wedding</span>
+            <span class="project-chip">Event</span>
+            <span class="project-chip">Brand Shoot</span>
+            <span class="project-chip">Product Shoot</span>
+            <span class="project-chip">Commercial Advertisement</span>
+            <span class="project-chip">Photography</span>
+            <span class="project-chip">Videography</span>
+            <span class="project-chip">Other</span>
+        </div>
+    </section>
+
+    <!-- 5. Split Map Section -->
+    <section class="split-map-section gsap-reveal">
+        <div class="split-map-grid">
+            <div class="map-info">
+                <h3 class="map-title">Visit Our Studio</h3>
+                <p class="map-address">AMF Studio, Madurai, Tamil Nadu, India</p>
+                <p class="map-hours">Open Monday to Saturday<br>9:00 AM to 8:00 PM</p>
+                <a href="https://www.google.com/maps?q=Madurai" target="_blank" class="btn-outline-hub">Get Directions</a>
+            </div>
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125766.19632832814!2d78.0404229986328!3d9.917826700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189633%3A0xdc955b7264f6392!2sMadurai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1689000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Trust Strip -->
+    <section class="trust-strip-section gsap-reveal">
+        <div class="trust-strip">
+            <div class="trust-item"><i class="fa-solid fa-bolt"></i> Fast Response</div>
+            <div class="trust-item"><i class="fa-solid fa-lightbulb"></i> Creative Consultation</div>
+            <div class="trust-item"><i class="fa-solid fa-box-open"></i> Customized Packages</div>
+            <div class="trust-item"><i class="fa-solid fa-users-viewfinder"></i> Professional Production</div>
+            <div class="trust-item"><i class="fa-solid fa-clock-rotate-left"></i> On-Time Delivery</div>
+        </div>
+    </section>
+
+    <!-- 7. Final CTA -->
+    <section class="final-cta-hub">
+        <div class="cta-hub-bg"></div>
+        <div class="cta-hub-content gsap-reveal">
+            <h2>Your Story Deserves to Be Created Beautifully</h2>
+            <p>Let's discuss your next big shoot, event, or creative masterpiece.</p>
+            <div class="cta-hub-actions">
+                <a href="booking.html" class="btn-premium-hub">Start Your Project</a>
+                <a href="#contact-workspace" class="btn-outline-hub">Contact Our Team</a>
+            </div>
         </div>
     </section>
 
@@ -179,7 +227,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-                    <img src="logo.png" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
+                    <img src="logo.webp" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
                     AMF <span>STUDIO</span>
                 </a>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">Premium social media marketing, strategy planning, creative reels development, and market research solutions.</p>
@@ -228,6 +276,10 @@
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="contact-premium.js"></script>
 </body>
 </html>

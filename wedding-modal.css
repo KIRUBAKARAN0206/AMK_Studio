@@ -1,0 +1,291 @@
+/* ==========================================================================
+   WEDDING PACKAGES PREMIUM MODAL
+   ========================================================================== */
+
+/* Modal Container Enhancements for Wedding */
+.wedding-modal-active {
+    background: linear-gradient(145deg, #0a0a0a, #050505) !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.15), 0 0 80px rgba(124, 58, 237, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 24px !important;
+    animation: modalScaleUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScaleUp {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Custom Thin Gold Scrollbar */
+.wedding-modal-active::-webkit-scrollbar {
+    width: 6px;
+}
+.wedding-modal-active::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+.wedding-modal-active::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #D4AF37, #7C3AED);
+    border-radius: 10px;
+}
+
+/* Modal Background Effects */
+.wedding-modal-bg-glow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: 24px;
+}
+.wedding-modal-bg-glow::before, .wedding-modal-bg-glow::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: floatGlow 10s infinite alternate;
+}
+.wedding-modal-bg-glow::before {
+    width: 300px; height: 300px;
+    background: #D4AF37;
+    top: -50px; left: -50px;
+}
+.wedding-modal-bg-glow::after {
+    width: 400px; height: 400px;
+    background: #7C3AED;
+    bottom: -100px; right: -100px;
+    animation-delay: 5s;
+}
+
+@keyframes floatGlow {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(30px, 30px) scale(1.1); }
+}
+
+/* Header Area */
+.wedding-header {
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.8s ease forwards;
+}
+@keyframes fadeDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.wedding-icon-wrapper {
+    width: 80px; height: 80px;
+    margin: 0 auto 20px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.4), inset 0 0 20px rgba(212, 175, 55, 0.2);
+    animation: iconPulse 3s infinite alternate;
+}
+
+@keyframes iconPulse {
+    from { transform: scale(1); box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); }
+    to { transform: scale(1.05); box-shadow: 0 0 40px rgba(212, 175, 55, 0.4); }
+}
+
+.wedding-title {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.wedding-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    margin: 0 auto 20px;
+}
+
+.wedding-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* Package Cards Grid */
+.wedding-packages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+@media (max-width: 768px) {
+    .wedding-packages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Premium Package Card */
+.wedding-pack-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.2) 100%);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: inset 0 2px 20px rgba(255,255,255,0.02), 0 10px 30px rgba(0,0,0,0.5);
+    opacity: 0;
+    animation: staggerUp 0.8s forwards;
+}
+
+.wedding-pack-card:nth-child(1) { animation-delay: 0.1s; }
+.wedding-pack-card:nth-child(2) { animation-delay: 0.2s; }
+.wedding-pack-card:nth-child(3) { animation-delay: 0.3s; }
+.wedding-pack-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes staggerUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.wedding-pack-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: inset 0 2px 20px rgba(255,255,255,0.05), 0 20px 40px rgba(212, 175, 55, 0.15);
+}
+
+.wedding-pack-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+.wedding-pack-card:hover::after {
+    opacity: 1;
+}
+
+/* Card Premium Badge */
+.wedding-premium-badge {
+    position: absolute;
+    top: -1px; right: 20px;
+    background: linear-gradient(135deg, #D4AF37, #7C3AED);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 0 0 10px 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Price Styling */
+.wedding-price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #D4AF37, #b8860b, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    filter: drop-shadow(0 4px 10px rgba(212,175,55,0.2));
+}
+
+/* Service Lists */
+.wedding-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.wedding-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.wedding-list i {
+    color: #10B981; /* Green accent for service icons */
+    margin-top: 3px;
+    font-size: 1.1rem;
+}
+
+.wedding-deliverables-title {
+    color: #D4AF37;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.wedding-deliverables {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+.wedding-deliverables li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.wedding-deliverables i {
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+    font-size: 0.9rem;
+}
+
+/* Premium Close Button for Wedding Modal */
+.wedding-close-btn {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 45px !important;
+    height: 45px !important;
+    background: rgba(0,0,0,0.7) !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    border-radius: 50% !important;
+    color: #D4AF37 !important;
+    font-size: 1.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 100 !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 0 !important;
+}
+
+.wedding-close-btn:hover {
+    background: #D4AF37 !important;
+    color: #000 !important;
+    transform: rotate(90deg) scale(1.1) !important;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4) !important;
+}

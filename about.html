@@ -6,21 +6,32 @@
     <meta name="description" content="Learn more about AMF Studio history, gear, creative workflow and crew.">
     <title>About Us | AMF Studio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- Lenis Smooth Scroll CSS (optional for some setups, but good practice) -->
+    <style>
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+    </style>
+
+    <link rel="preload" href="about-bg.webp" as="image" fetchpriority="high">
 </head>
-<body class="about-layout">
+<body class="about-layout premium-page">
     <!-- Preloader -->
     <div id="preloader">
-        <img src="logo.png" alt="AMF Studio Logo" class="preloader-logo">
+        <img src="logo.webp" alt="AMF Studio Logo" class="preloader-logo">
+        <div class="preloader-text">AMF <span>STUDIO</span></div>
     </div>
-    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Header Navigation -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
+                <img src="logo.webp" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
                 AMF <span>STUDIO</span>
             </a>
             
@@ -34,7 +45,7 @@
                 </ul>
             </nav>
 
-            <a href="booking.html" class="nav-btn">Book Session</a>
+            <a href="booking.html" class="nav-btn magnetic">Book Session</a>
 
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
                 <span></span>
@@ -44,120 +55,184 @@
         </div>
     </header>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <h1 class="page-banner-title">About AMF Studio</h1>
-        <p class="page-banner-desc">Learn about our origin, creative goals, studio facilities, and the team bringing visions to life.</p>
+    <!-- 1. Cinematic Hero Section -->
+    <section class="premium-hero">
+        <div class="hero-bg" style="background-image: url('about-bg.webp');"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-title-wrapper">
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Where Vision</span>
+                    <span class="hero-title-line">Meets <span class="gold-text">Mastery</span></span>
+                </h1>
+                <div class="hero-gold-line"></div>
+            </div>
+            <p class="hero-subtitle hero-cta">A world-class creative studio dedicated to crafting cinematic perfection.</p>
+            <a href="#story" class="premium-btn magnetic hero-cta">Discover Our Story <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
     </section>
 
-    <!-- About Content Section -->
-    <section class="about">
-        <div class="about-container">
-            <div class="about-visual reveal">
-                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=600&auto=format&fit=crop" alt="AMF Studio creative focus camera" class="about-img">
+    <!-- 2. Company Story -->
+    <section id="story" class="premium-story">
+        <div class="story-container">
+            <div class="story-visual gsap-reveal" data-direction="left">
+                <div class="story-img-wrapper tilt-card">
+                    <img loading="lazy" decoding="async" src="founder_new.webp" alt="Aadvikmindeen - Founder" class="gsap-parallax story-img">
+                    <div class="story-img-glow"></div>
+                </div>
             </div>
+            <div class="story-text gsap-stagger-container">
+                <span class="premium-subtitle gsap-stagger-item">The Visionary</span>
+                <h2 class="premium-heading gsap-stagger-item">Aadvikmindeen</h2>
+                <h4 class="premium-role gsap-stagger-item">Founder & Creative Director</h4>
+                <p class="premium-desc gsap-stagger-item">With a passion for authentic storytelling and an eye for cinematic perfection, AMF Studio was established to bridge the gap between creative vision and high-end professional production.</p>
+                <p class="premium-desc gsap-stagger-item">Under his leadership, the studio has evolved into a powerhouse for commercial ad shoots, premium photography, and dynamic event coverage, consistently pushing the boundaries of modern media aesthetics to deliver uncompromised quality.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Why Choose Us -->
+    <section class="premium-why">
+        <div class="section-header gsap-reveal">
+            <span class="premium-subtitle">The AMF Advantage</span>
+            <h2 class="premium-heading">Why Choose Us</h2>
+        </div>
+        <div class="why-grid gsap-stagger-container">
+            <div class="why-card glass-card gsap-stagger-item tilt-card">
+                <div class="why-icon-wrapper"><i class="fa-solid fa-star"></i></div>
+                <h3>Creative Excellence</h3>
+                <p>Award-winning directors and creatives ensuring every frame tells a compelling story.</p>
+            </div>
+            <div class="why-card glass-card gsap-stagger-item tilt-card">
+                <div class="why-icon-wrapper"><i class="fa-solid fa-video"></i></div>
+                <h3>Professional Equipment</h3>
+                <p>We shoot on industry-standard cinema cameras, ensuring your visuals rival Hollywood productions.</p>
+            </div>
+            <div class="why-card glass-card gsap-stagger-item tilt-card">
+                <div class="why-icon-wrapper"><i class="fa-solid fa-clapperboard"></i></div>
+                <h3>Cinematic Storytelling</h3>
+                <p>Transforming basic ideas into visually stunning, high-engagement cinematic narratives.</p>
+            </div>
+            <div class="why-card glass-card gsap-stagger-item tilt-card">
+                <div class="why-icon-wrapper"><i class="fa-solid fa-stopwatch"></i></div>
+                <h3>On-Time Delivery</h3>
+                <p>Streamlined post-production workflows guarantee your projects are delivered perfectly on schedule.</p>
+            </div>
+            <div class="why-card glass-card gsap-stagger-item tilt-card">
+                <div class="why-icon-wrapper"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Customized Solutions</h3>
+                <p>Tailored production packages designed specifically to meet your unique brand requirements.</p>
+            </div>
+            <div class="why-card glass-card gsap-stagger-item tilt-card">
+                <div class="why-icon-wrapper"><i class="fa-solid fa-film"></i></div>
+                <h3>End-to-End Production</h3>
+                <p>From initial concept scripting to final HDR color grading and mastering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Our Workflow -->
+    <section class="premium-workflow">
+        <div class="section-header gsap-reveal">
+            <span class="premium-subtitle">The Process</span>
+            <h2 class="premium-heading">Our Studio Workflow</h2>
+        </div>
+        <div class="workflow-timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-line-progress"></div>
             
-            <div class="about-text reveal">
-                <span class="section-subtitle">Who We Are</span>
-                <h2 class="about-heading">Fusing Innovation With Cinematic Art</h2>
-                <p class="about-desc">AMF Studio creates visuals and sounds that resonate deeply. With state-of-the-art camera systems, high-end acoustical treatment, and a seasoned team of colorists and engineers, we elevate brands and creators to the global level.</p>
+            <div class="workflow-step left">
+                <div class="timeline-dot"></div>
+                <div class="workflow-content glass-card tilt-card">
+                    <h3>01. Planning</h3>
+                    <p>Conceptualizing ideas, scripting, and creating moodboards to align with your brand.</p>
+                </div>
+            </div>
+            <div class="workflow-step right">
+                <div class="timeline-dot"></div>
+                <div class="workflow-content glass-card tilt-card">
+                    <h3>02. Pre-Production</h3>
+                    <p>Location scouting, talent casting, and securing top-tier equipment for the shoot.</p>
+                </div>
+            </div>
+            <div class="workflow-step left">
+                <div class="timeline-dot"></div>
+                <div class="workflow-content glass-card tilt-card">
+                    <h3>03. Shooting</h3>
+                    <p>Executing the vision on set with our expert directors, DPs, and lighting technicians.</p>
+                </div>
+            </div>
+            <div class="workflow-step right">
+                <div class="timeline-dot"></div>
+                <div class="workflow-content glass-card tilt-card">
+                    <h3>04. Editing</h3>
+                    <p>Piecing together the narrative with precision timing and rhythm in our edit suites.</p>
+                </div>
+            </div>
+            <div class="workflow-step left">
+                <div class="timeline-dot"></div>
+                <div class="workflow-content glass-card tilt-card">
+                    <h3>05. Color Grading</h3>
+                    <p>Enhancing mood and atmosphere through advanced HDR color correction.</p>
+                </div>
+            </div>
+            <div class="workflow-step right">
+                <div class="timeline-dot"></div>
+                <div class="workflow-content glass-card tilt-card">
+                    <h3>06. Final Delivery</h3>
+                    <p>Exporting high-resolution masters optimized for all digital and broadcast platforms.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Founder Section -->
-    <section class="founder-section">
-        <div class="about-container" style="align-items: center; gap: 60px;">
-            <div class="founder-text reveal">
-                <span class="section-subtitle">Meet The Visionary</span>
-                <h2 class="about-heading" style="margin-bottom: 5px;">Aadvikmindeen</h2>
-                <h4 style="color: var(--accent-primary); font-size: 1.1rem; margin-bottom: 25px; font-weight: 500; letter-spacing: 1px;">Founder & Creative Director</h4>
-                <p class="about-desc">With a passion for authentic storytelling and an eye for cinematic perfection, Aadvikmindeen established AMF Studio to bridge the gap between creative vision and high-end professional production.</p>
-                <p class="about-desc">Under his leadership, the studio has evolved into a powerhouse for commercial ad shoots, premium photography, and dynamic event coverage, consistently pushing the boundaries of modern media aesthetics to deliver uncompromised quality.</p>
-                
-                <div class="founder-socials" style="margin-top: 30px; display: flex; gap: 15px;">
-                    <a href="#" class="social-icon" aria-label="Instagram" style="border-color: rgba(255, 255, 255, 0.1);"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="social-icon" aria-label="Twitter" style="border-color: rgba(255, 255, 255, 0.1);"><i class="fa-brands fa-twitter"></i></a>
+    <!-- 6. Equipment Showcase -->
+    <section class="premium-equipment">
+        <div class="section-header gsap-reveal">
+            <span class="premium-subtitle">The Gear</span>
+            <h2 class="premium-heading">Industry Standard Equipment</h2>
+        </div>
+        <div class="equipment-grid gsap-stagger-container">
+            <div class="eq-card glass-card gsap-stagger-item tilt-card">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/edit-1.webp" alt="Cinema Cameras">
+                <div class="eq-info">
+                    <h4>Cinema Cameras</h4>
+                    <p>RED & Sony Cinema Line</p>
                 </div>
             </div>
-            
-            <div class="founder-visual reveal" style="display: flex; justify-content: center; position: relative;">
-                <div class="founder-image-wrapper" style="position: relative; border-radius: 24px; border: 2px solid var(--accent-primary); box-shadow: 0 0 40px rgba(255, 0, 127, 0.3); transition: transform 0.4s ease, box-shadow 0.4s ease; background: #000; padding: 5px;">
-                    <img src="founder.jpg" alt="Aadvikmindeen - Founder of AMF Studio" style="width: 100%; max-width: 420px; height: auto; display: block; border-radius: 20px;">
-                    <!-- Very subtle gradient only at the very bottom for depth, not covering the person -->
-                    <div style="position: absolute; bottom: 5px; left: 5px; width: calc(100% - 10px); height: 15%; background: linear-gradient(to top, rgba(10, 8, 19, 0.6), transparent); pointer-events: none; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"></div>
+            <div class="eq-card glass-card gsap-stagger-item tilt-card">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/edit-1.webp" alt="Drones">
+                <div class="eq-info">
+                    <h4>Aerial Drones</h4>
+                    <p>DJI Inspire & Mavic Pro</p>
                 </div>
-                <!-- Decorative element -->
-                <div style="position: absolute; top: -20px; right: 0%; width: 80px; height: 80px; border: 3px solid var(--accent-secondary); border-radius: 50%; opacity: 0.8; z-index: -1; animation: blink 2s infinite;"></div>
-                <div style="position: absolute; bottom: -30px; left: 0%; width: 120px; height: 120px; background: var(--button-grad); filter: blur(50px); opacity: 0.5; z-index: -1;"></div>
+            </div>
+            <div class="eq-card glass-card gsap-stagger-item tilt-card">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/edit-1.webp" onerror="this.onerror=null;this.src='event-bg.webp';" alt="Lighting">
+                <div class="eq-info">
+                    <h4>Lighting Systems</h4>
+                    <p>Aputure & Arri Skypanels</p>
+                </div>
+            </div>
+            <div class="eq-card glass-card gsap-stagger-item tilt-card">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/edit-1.webp" alt="Editing">
+                <div class="eq-info">
+                    <h4>Editing Suites</h4>
+                    <p>Mac Studio & DaVinci</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Studio Facilities Grid -->
-    <section class="bg-alt">
-        <div class="section-header reveal">
-            <span class="section-subtitle">Our Spaces</span>
-            <h2 class="section-title">Designed for Ultimate Creativity</h2>
+
+    <!-- 9. Call To Action -->
+    <section class="premium-cta">
+        <div class="cta-content gsap-reveal">
+            <h2>Let's Create Something <span class="gold-text">Extraordinary</span></h2>
+            <p>Ready to elevate your visual presence?</p>
+            <a href="booking.html" class="premium-btn magnetic">Book Your Session</a>
         </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
-            <!-- Facility 1 -->
-            <div class="workflow-card reveal">
-                <h3 class="workflow-title" style="color: var(--accent);"><i class="fa-solid fa-microphone-lines"></i> Vocal Live Room</h3>
-                <p class="workflow-desc">Fully isolated floating room with 0.4s RT60 absorption, hosting premium microphones for professional acoustic and vocal recording.</p>
-            </div>
-            <!-- Facility 2 -->
-            <div class="workflow-card reveal">
-                <h3 class="workflow-title" style="color: var(--accent);"><i class="fa-solid fa-sliders"></i> Analogue Mixing Suite</h3>
-                <p class="workflow-desc">Features our SSL sound console with Genelec active monitors, optimized for mastering multi-track stereo soundscapes.</p>
-            </div>
-            <!-- Facility 3 -->
-            <div class="workflow-card reveal">
-                <h3 class="workflow-title" style="color: var(--accent);"><i class="fa-solid fa-computer"></i> HDR Color Suites</h3>
-                <p class="workflow-desc">Calibrated OLED displays and hardware control panels dedicated to industry standard DaVinci color mapping.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Redesigned Pillars of Expertise Section -->
-    <section>
-        <div class="section-header reveal">
-            <span class="section-subtitle">Our Specializations</span>
-            <h2 class="section-title">Pillars of Creative Expertise</h2>
-        </div>
-
-        <div class="team-grid">
-            <!-- Pillar 1 -->
-            <div class="team-card reveal" style="border: 1px solid rgba(255, 0, 127, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
-                <div class="team-avatar-wrapper" style="border-radius: 12px; height: 200px; width: 100%; overflow: hidden; margin-bottom: 20px;">
-                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=400&auto=format&fit=crop" alt="Cinematic Vision" class="team-avatar" style="border-radius: 0; width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h4 class="team-name" style="font-size: 1.25rem;">Cinematic Strategy</h4>
-                <p class="team-role" style="color: var(--accent); margin-bottom: 15px;">Visual Storytelling & Ad Production</p>
-                <p class="team-bio">Fusing strategy with premium cinematography to craft high-engagement campaigns and high-production commercials.</p>
-            </div>
-
-            <!-- Pillar 2 -->
-            <div class="team-card reveal" style="border: 1px solid rgba(255, 0, 127, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
-                <div class="team-avatar-wrapper" style="border-radius: 12px; height: 200px; width: 100%; overflow: hidden; margin-bottom: 20px;">
-                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=400&auto=format&fit=crop" alt="Audio engineering" class="team-avatar" style="border-radius: 0; width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h4 class="team-name" style="font-size: 1.25rem;">Sound Design</h4>
-                <p class="team-role" style="color: var(--accent); margin-bottom: 15px;">Audio Engineering & Mastering</p>
-                <p class="team-bio">Acoustic treatment, high-end mixing console workflows, vocal mastering, and pristine podcast staging.</p>
-            </div>
-
-            <!-- Pillar 3 -->
-            <div class="team-card reveal" style="border: 1px solid rgba(255, 0, 127, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
-                <div class="team-avatar-wrapper" style="border-radius: 12px; height: 200px; width: 100%; overflow: hidden; margin-bottom: 20px;">
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=400&auto=format&fit=crop" alt="Color suite" class="team-avatar" style="border-radius: 0; width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h4 class="team-name" style="font-size: 1.25rem;">Post-Production</h4>
-                <p class="team-role" style="color: var(--accent); margin-bottom: 15px;">Color Grading & VFX Compositing</p>
-                <p class="team-bio">Precision color correction, grading panels, and VFX details that render cinematic visuals.</p>
-            </div>
-        </div>
+        <div class="cta-glow"></div>
     </section>
 
     <!-- Footer -->
@@ -165,7 +240,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-                    <img src="logo.png" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
+                    <img src="logo.webp" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
                     AMF <span>STUDIO</span>
                 </a>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">Premium social media marketing, strategy planning, creative reels development, and market research solutions.</p>
@@ -207,13 +282,22 @@
         <div class="footer-bottom">
             <p class="footer-copy">&copy; 2026 AMF Studio. All rights reserved.</p>
             <div class="footer-socials">
-                <a href="https://wa.me/916379776173" class="social-icon" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://wa.me/916379776173" class="social-icon magnetic" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="social-icon magnetic" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon magnetic" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <!-- Core App Logic -->
+    <script type="module" src="app.js"></script>
+    
+    <!-- Premium Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Premium About Page Animations -->
+    <script type="module" src="about-premium.js"></script>
 </body>
 </html>

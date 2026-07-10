@@ -6,13 +6,17 @@
     <meta name="description" content="View the work of AMF Studio across photography, videography, audio production, and editing.">
     <title>Portfolio | AMF Studio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio-premium.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <link rel="preload" href="assets/images/portfolio/wedding-1.webp" as="image" fetchpriority="high">
 </head>
 <body class="portfolio-layout">
     <!-- Preloader -->
     <div id="preloader">
-        <img src="logo.png" alt="AMF Studio Logo" class="preloader-logo">
+        <img src="logo.webp" alt="AMF Studio Logo" class="preloader-logo">
+        <div class="preloader-text">AMF <span>STUDIO</span></div>
     </div>
     <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -20,7 +24,7 @@
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
+                <img src="logo.webp" alt="AMF Studio Logo" style="height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.45));">
                 AMF <span>STUDIO</span>
             </a>
             
@@ -44,107 +48,312 @@
         </div>
     </header>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <h1 class="page-banner-title">Our Portfolio</h1>
-        <p class="page-banner-desc">Take a look at some of our finest captured moments, visual projects, and sound productions.</p>
+    <!-- 1. Hero Section -->
+    <section class="portfolio-hero">
+        <div class="portfolio-hero-bg"></div>
+        <div class="portfolio-hero-content">
+            <h1 class="portfolio-hero-title">Our Portfolio</h1>
+            <div class="portfolio-hero-line"></div>
+            <p class="portfolio-hero-subtitle">Take a look at some of our finest captured moments, visual projects, and sound productions crafted with passion and precision.</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+        </div>
     </section>
 
-    <!-- Portfolio Content Section -->
-    <section class="portfolio">
-        <div class="portfolio-container">
-            <!-- Filters -->
-            <div class="portfolio-filters reveal">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="photo">Photography</button>
-                <button class="filter-btn" data-filter="video">Videography</button>
-                <button class="filter-btn" data-filter="audio">Audio</button>
-                <button class="filter-btn" data-filter="edit">Editing</button>
-            </div>
+    <!-- 2. Portfolio Filters -->
+    <section class="portfolio-filter-section">
+        <div class="portfolio-filters-premium gsap-reveal">
+            <button class="premium-filter-btn active" data-filter="all">All</button>
+            <button class="premium-filter-btn" data-filter="wedding">Wedding</button>
+            <button class="premium-filter-btn" data-filter="pre-wedding">Pre Wedding</button>
+            <button class="premium-filter-btn" data-filter="brand">Brand Shoot</button>
+            <button class="premium-filter-btn" data-filter="commercial">Commercial Ads</button>
+            <button class="premium-filter-btn" data-filter="event">Events</button>
+            <button class="premium-filter-btn" data-filter="corporate">Corporate</button>
+            <button class="premium-filter-btn" data-filter="product">Product Shoot</button>
+            <button class="premium-filter-btn" data-filter="fashion">Fashion</button>
+            <button class="premium-filter-btn" data-filter="reels">Reels</button>
+            <button class="premium-filter-btn" data-filter="short">Short Films</button>
+        </div>
+    </section>
 
-            <!-- Grid -->
-            <div class="portfolio-grid">
-                <!-- Item 1 -->
-                <div class="portfolio-item reveal" data-category="photo">
-                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=600&auto=format&fit=crop" alt="Photography work" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Photography</span>
-                        <h4 class="portfolio-title">Vogue Style Editorial Shoot</h4>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="portfolio-item reveal" data-category="video">
-                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=600&auto=format&fit=crop" alt="Videography work" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Videography</span>
-                        <h4 class="portfolio-title">Urban Cinematic Commercial</h4>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="portfolio-item reveal" data-category="audio">
-                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600&auto=format&fit=crop" alt="Audio work" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Audio Production</span>
-                        <h4 class="portfolio-title">Podcasting & Voice Mastery</h4>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="portfolio-item reveal" data-category="edit">
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=600&auto=format&fit=crop" alt="Editing work" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Editing</span>
-                        <h4 class="portfolio-title">Davinci Color Grading Project</h4>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="portfolio-item reveal" data-category="photo">
-                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=600&auto=format&fit=crop" alt="Photography work" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Photography</span>
-                        <h4 class="portfolio-title">Fashion Portrait Studio Shoot</h4>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="portfolio-item reveal" data-category="video">
-                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600&auto=format&fit=crop" alt="Videography work" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Videography</span>
-                        <h4 class="portfolio-title">Rhythm & Lights Concert Video</h4>
-                    </div>
-                </div>
-
-                <!-- Item 7 -->
-                <div class="portfolio-item reveal" data-category="audio">
-                    <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=600&auto=format&fit=crop" alt="Audio mic work" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Audio Production</span>
-                        <h4 class="portfolio-title">Voiceover Session & Story Ad</h4>
-                    </div>
-                </div>
-
-                <!-- Item 8 -->
-                <div class="portfolio-item reveal" data-category="edit">
-                    <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=600&auto=format&fit=crop" alt="Video color grading" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Editing</span>
-                        <h4 class="portfolio-title">Commercial Trailer Montage</h4>
-                    </div>
-                </div>
-
-                <!-- Item 9 -->
-                <div class="portfolio-item reveal" data-category="photo">
-                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=600&auto=format&fit=crop" alt="Camera lens" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <span class="portfolio-category">Photography</span>
-                        <h4 class="portfolio-title">Macro Product Detail Campaign</h4>
-                    </div>
+    <!-- 3. Masonry Gallery -->
+    <section class="masonry-container">
+        <div class="masonry-grid">
+            
+            <div class="masonry-item" data-category="wedding" data-desc="A cinematic wedding moment capturing true love and timeless emotion.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/wedding-1.webp" alt="Luxury Wedding">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Wedding</span>
+                    <h4 class="hover-title">The Grand Vow Exchange</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
                 </div>
             </div>
+
+            <div class="masonry-item" data-category="fashion" data-desc="High-end editorial fashion shoot featuring luxury garments and dramatic studio lighting.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/fashion-1.webp" alt="Fashion Editorial">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Fashion</span>
+                    <h4 class="hover-title">Vogue Style Editorial</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+            <div class="masonry-item" data-category="commercial" data-desc="A high-octane commercial advertisement created for a premium automotive brand.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/event-1.webp" alt="Commercial Ad">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Commercial Ads</span>
+                    <h4 class="hover-title">Urban Cinematic Commercial</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+            <div class="masonry-item" data-category="audio" data-desc="Professional audio mixing and voiceover recording for a nationwide radio campaign.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/audio-1.webp" alt="Audio Production">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Audio Production</span>
+                    <h4 class="hover-title">Podcasting & Voice Mastery</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+            <div class="masonry-item" data-category="edit" data-desc="Intricate color grading process turning flat footage into a cinematic masterpiece.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/edit-1.webp" alt="Video Editing">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Editing</span>
+                    <h4 class="hover-title">Davinci Color Grading</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+            <div class="masonry-item" data-category="brand" data-desc="Complete visual identity and brand photography for a luxury cosmetics line.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/brand-1.webp" alt="Brand Shoot">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Brand Shoot</span>
+                    <h4 class="hover-title">Luxury Cosmetics Launch</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+            <div class="masonry-item" data-category="product" data-desc="Macro product photography highlighting precise details of a premium timepiece.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/product-1.webp" alt="Product Photography">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Product Shoot</span>
+                    <h4 class="hover-title">Macro Detail Campaign</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+            <div class="masonry-item" data-category="pre-wedding" data-desc="A beautiful pre-wedding romantic shoot in a scenic mountain location.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/pre-wedding-1.webp" alt="Pre Wedding Shoot">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Pre Wedding</span>
+                    <h4 class="hover-title">Mountain Romance</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+            <div class="masonry-item" data-category="event" data-desc="Live music concert coverage featuring stunning stage lights and crowd energy.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/event-1.webp" alt="Event Coverage">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Events</span>
+                    <h4 class="hover-title">Rhythm & Lights Concert</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+            <div class="masonry-item" data-category="short" data-desc="Fast-paced commercial trailer montage with dynamic transitions.">
+                <img loading="lazy" decoding="async" src="assets/images/portfolio/edit-2.webp" alt="Commercial Trailer">
+                <div class="masonry-hover-content">
+                    <span class="hover-category">Short Films</span>
+                    <h4 class="hover-title">Commercial Trailer Montage</h4>
+                    <div class="hover-btn"><i class="fa-solid fa-arrow-right"></i> View Project</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Lightbox Overlay -->
+    <div class="premium-lightbox" id="portfolioLightbox">
+        <button class="lightbox-close" id="lbClose"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lbPrev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lightbox-nav lightbox-next" id="lbNext"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-counter" id="lbCounter">1 / 10</div>
+        
+        <div class="lightbox-content">
+            <img src="" alt="Expanded Portfolio Image" class="lightbox-img" id="lbImg" loading="lazy">
+            <div class="lightbox-details">
+                <div>
+                    <h2 class="lightbox-title" id="lbTitle">Project Title</h2>
+                    <span style="color:#D4AF37; font-size:0.85rem; text-transform:uppercase; letter-spacing:2px; display:block; margin-bottom:10px;" id="lbCat">Category</span>
+                    <p class="lightbox-desc" id="lbDesc">Project description goes here.</p>
+                </div>
+                <div class="lightbox-actions">
+                    <button class="lightbox-btn" title="Share Project"><i class="fa-solid fa-share-nodes"></i></button>
+                    <!-- Download button deliberately omitted as per user requirement -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Featured Projects -->
+    <section class="featured-section">
+        <div class="section-header gsap-reveal">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A Look Into Our Masterpieces</p>
+        </div>
+
+        <div class="featured-project gsap-reveal">
+            <div class="featured-img-wrapper">
+                <img src="assets/images/portfolio/wedding-2.webp" alt="Royal Wedding Feature" loading="lazy">
+            </div>
+            <div class="featured-content">
+                <span class="featured-type">Cinematic Wedding</span>
+                <h3 class="featured-name">The Royal Palace Vows</h3>
+                <p class="featured-desc">A breathtaking destination wedding shot at a 17th-century palace. We deployed a 5-camera cinematic team alongside heavy drone coverage to capture the sheer grandeur and deeply emotional moments of this unforgettable weekend.</p>
+                <div class="featured-client">Client: The Oberoi Family</div>
+                <a href="#" class="btn-premium-outline">View Full Story</a>
+            </div>
+        </div>
+
+        <div class="featured-project gsap-reveal">
+            <div class="featured-img-wrapper">
+                <img src="assets/images/portfolio/brand-1.webp" alt="Brand Campaign Feature" loading="lazy">
+            </div>
+            <div class="featured-content">
+                <span class="featured-type">Commercial Campaign</span>
+                <h3 class="featured-name">Urban Edge Autumn Collection</h3>
+                <p class="featured-desc">A high-fashion commercial campaign shot on RED Digital Cinema cameras. Combining gritty urban landscapes with hyper-stylized lighting setups to elevate the brand's autumn apparel line into a true visual spectacle.</p>
+                <div class="featured-client">Client: Urban Edge Apparel</div>
+                <a href="#" class="btn-premium-outline">View Full Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Behind The Scenes -->
+    <section class="bts-section">
+        <div class="section-header gsap-reveal">
+            <h2 class="section-title">Behind The Lens</h2>
+            <p class="section-subtitle">Our Studio & Workflow</p>
+        </div>
+        <div class="bts-grid">
+            <div class="bts-card gsap-reveal">
+                <img src="assets/images/portfolio/edit-1.webp" alt="Studio Setup" loading="lazy">
+                <div class="bts-overlay">
+                    <h4>High-End Color Grading Suite</h4>
+                </div>
+            </div>
+            <div class="bts-card gsap-reveal">
+                <img src="assets/images/portfolio/event-1.webp" alt="Live Event Setup" loading="lazy">
+                <div class="bts-overlay">
+                    <h4>Live Event Camera Rigging</h4>
+                </div>
+            </div>
+            <div class="bts-card gsap-reveal">
+                <img src="assets/images/portfolio/edit-2.webp" alt="Editing Bay" loading="lazy">
+                <div class="bts-overlay">
+                    <h4>Post-Production Editing Bay</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Video Showcase -->
+    <section class="video-showcase">
+        <div class="section-header gsap-reveal">
+            <h2 class="section-title">Cinematic Reels</h2>
+            <p class="section-subtitle">Motion Picture Excellence</p>
+        </div>
+        <div class="video-grid">
+            <div class="video-card gsap-reveal">
+                <img src="assets/images/videos/video-thumb-1.webp" alt="Video Thumbnail" class="video-thumb" loading="lazy">
+                <div class="video-overlay">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <span style="color:#D4AF37; font-size:0.8rem; text-transform:uppercase;">Short Film</span>
+                    <h4 style="color:#fff; font-size:1.2rem; margin-top:5px;">Echoes of Time</h4>
+                </div>
+                <div class="video-duration">03:45</div>
+            </div>
+            <div class="video-card gsap-reveal">
+                <img src="assets/images/portfolio/wedding-1.webp" alt="Video Thumbnail" class="video-thumb" loading="lazy">
+                <div class="video-overlay">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <span style="color:#D4AF37; font-size:0.8rem; text-transform:uppercase;">Wedding Film</span>
+                    <h4 style="color:#fff; font-size:1.2rem; margin-top:5px;">A Love Story</h4>
+                </div>
+                <div class="video-duration">12:20</div>
+            </div>
+            <div class="video-card gsap-reveal">
+                <img src="assets/images/portfolio/brand-1.webp" alt="Video Thumbnail" class="video-thumb" loading="lazy">
+                <div class="video-overlay">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="video-info">
+                    <span style="color:#D4AF37; font-size:0.8rem; text-transform:uppercase;">Commercial</span>
+                    <h4 style="color:#fff; font-size:1.2rem; margin-top:5px;">Nike City Run Ad</h4>
+                </div>
+                <div class="video-duration">01:30</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Client Logos -->
+    <section class="clients-section">
+        <div class="marquee-container">
+            <div class="marquee-item">
+                <span class="client-logo">Sony Alpha</span>
+                <span class="client-logo">RED Digital</span>
+                <span class="client-logo">Vogue</span>
+                <span class="client-logo">Audi</span>
+                <span class="client-logo">Rolex</span>
+                <span class="client-logo">Apple</span>
+            </div>
+            <div class="marquee-item">
+                <span class="client-logo">Sony Alpha</span>
+                <span class="client-logo">RED Digital</span>
+                <span class="client-logo">Vogue</span>
+                <span class="client-logo">Audi</span>
+                <span class="client-logo">Rolex</span>
+                <span class="client-logo">Apple</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Awards / Achievements -->
+    <section class="awards-section">
+        <div class="awards-grid gsap-reveal">
+            <div class="award-card">
+                <div class="award-num">500+</div>
+                <div class="award-label">Projects Completed</div>
+            </div>
+            <div class="award-card">
+                <div class="award-num">200+</div>
+                <div class="award-label">Happy Clients</div>
+            </div>
+            <div class="award-card">
+                <div class="award-num">5+</div>
+                <div class="award-label">Years Experience</div>
+            </div>
+            <div class="award-card">
+                <div class="award-num">100%</div>
+                <div class="award-label">Premium Equipment</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Call To Action -->
+    <section class="premium-cta">
+        <div class="cta-glow-bg"></div>
+        <div class="cta-content gsap-reveal">
+            <h2>Let's Create Your Story</h2>
+            <a href="booking.html" class="btn-glow-gold">Book Your Shoot</a>
         </div>
     </section>
 
@@ -153,7 +362,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-                    <img src="logo.png" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
+                    <img src="logo.webp" alt="AMF Studio Logo" style="height: 45px; width: auto; filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.35));">
                     AMF <span>STUDIO</span>
                 </a>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">Premium social media marketing, strategy planning, creative reels development, and market research solutions.</p>
@@ -202,6 +411,10 @@
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="portfolio-premium.js"></script>
 </body>
 </html>
