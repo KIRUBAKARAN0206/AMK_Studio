@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.innerHTML = 'Sending Slot Request... <i class="fa-solid fa-circle-notch fa-spin"></i>';
 
                 // Format WhatsApp message
-                const waMessage = `*New Booking Request!* 📸\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Service:* ${category}\n*Date:* ${date}\n*Slot:* ${slot}\n*Details:* ${details}`;
+                const waMessage = `AMF Studio - New Booking Request\n\nA new booking has been submitted.\n\nCustomer Details\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nService: ${category}\nPreferred Date: ${date}\nPreferred Time: ${slot}\n\nMessage: ${details}`;
                 const waUrl = `https://wa.me/916379776173?text=${encodeURIComponent(waMessage)}`;
 
                 setTimeout(() => {
