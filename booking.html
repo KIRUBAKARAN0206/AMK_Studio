@@ -75,11 +75,23 @@
                         <div class="form-group">
                             <select id="booking-category" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;" required>
                                 <option value="" disabled selected hidden>Select Service Category</option>
-                                <option value="strategy">Strategy & Planning</option>
-                                <option value="reels">Post Reels & Development</option>
-                                <option value="research">Market Research</option>
-                                <option value="event">Event Coverage Pre-booking</option>
+                                <option value="wedding">Wedding Photography & Videography</option>
+                                <option value="pre-wedding">Pre-Wedding Shoot</option>
+                                <option value="event">Event Production</option>
+                                <option value="brand">Brand Shoot</option>
+                                <option value="commercial">Commercial Advertisement</option>
+                                <option value="product">Product Photography</option>
+                                <option value="music">Music Video Production</option>
+                                <option value="others">Others</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <!-- Hidden field for 'Others' -->
+                    <div class="form-group-row" id="other-category-row" style="display: none; animation-delay: 0.35s;">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <input type="text" id="booking-other-category" class="form-input" placeholder=" ">
+                            <label for="booking-other-category" class="form-label">Please specify the service</label>
                         </div>
                     </div>
 

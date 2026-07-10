@@ -159,6 +159,23 @@ document.addEventListener('DOMContentLoaded', () => {
         bookingDateInput.setAttribute('min', `${yyyy}-${mm}-${dd}`);
     }
 
+    const categorySelect = document.getElementById('booking-category');
+    const otherCategoryRow = document.getElementById('other-category-row');
+    const otherCategoryInput = document.getElementById('booking-other-category');
+
+    if (categorySelect && otherCategoryRow && otherCategoryInput) {
+        categorySelect.addEventListener('change', (e) => {
+            if (e.target.value === 'others') {
+                otherCategoryRow.style.display = 'grid';
+                otherCategoryInput.setAttribute('required', 'true');
+            } else {
+                otherCategoryRow.style.display = 'none';
+                otherCategoryInput.removeAttribute('required');
+                otherCategoryInput.value = '';
+            }
+        });
+    }
+
     if (bookingForm && successModal) {
         bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -167,7 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('booking-email').value;
             const date = document.getElementById('booking-date').value;
             const categorySelect = document.getElementById('booking-category');
-            const category = categorySelect ? categorySelect.options[categorySelect.selectedIndex].text : 'Service';
+            let category = categorySelect ? categorySelect.options[categorySelect.selectedIndex].text : 'Service';
+            
+            if (categorySelect && categorySelect.value === 'others') {
+                const otherVal = document.getElementById('booking-other-category').value;
+                if (otherVal) category = otherVal;
+            }
 
             if (name && email && date) {
                 const submitBtn = bookingForm.querySelector('.submit-btn');
@@ -186,6 +208,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     successModal.classList.add('active');
                     
                     bookingForm.reset();
+                    if (otherCategoryRow) {
+                        otherCategoryRow.style.display = 'none';
+                    }
                     
                     setTimeout(() => {
                         submitBtn.disabled = false;
