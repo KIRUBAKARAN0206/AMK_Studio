@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Format WhatsApp message
                 const waMessage = `*New Booking Request!* 📸\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Service:* ${category}\n*Date:* ${date}\n*Slot:* ${slot}\n*Details:* ${details}`;
-                const waUrl = `https://wa.me/917812864905?text=${encodeURIComponent(waMessage)}`;
+                const waUrl = `https://wa.me/916379776173?text=${encodeURIComponent(waMessage)}`;
 
                 setTimeout(() => {
                     submitBtn.innerHTML = 'Redirecting to WhatsApp... <i class="fa-brands fa-whatsapp"></i>';
