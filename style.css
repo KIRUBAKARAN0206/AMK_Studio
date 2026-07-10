@@ -2215,3 +2215,9 @@ footer {
         border-radius: 8px;
     }
 }
+
+/* Mobile only menu link */
+.mobile-only-link { display: none; }
+@media (max-width: 768px) {
+    .mobile-only-link { display: block; margin-top: 10px; }
+}
