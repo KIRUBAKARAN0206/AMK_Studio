@@ -16,44 +16,6 @@ requestAnimationFrame(raf);
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Custom Cursor
-    const cursor = document.createElement('div');
-    cursor.classList.add('luxury-cursor');
-    document.body.appendChild(cursor);
-
-    const cursorDot = document.createElement('div');
-    cursorDot.classList.add('luxury-cursor-dot');
-    document.body.appendChild(cursorDot);
-
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    });
-
-    // Smooth cursor follow
-    gsap.ticker.add(() => {
-        cursorX += (mouseX - cursorX) * 0.15;
-        cursorY += (mouseY - cursorY) * 0.15;
-        cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
-    });
-
-    // Hover effects on clickable items
-    const clickables = document.querySelectorAll('a, button, .magnetic, .team-card, .workflow-step');
-    clickables.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('active');
-            cursorDot.classList.add('active');
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-            cursorDot.classList.remove('active');
-        });
-    });
 
     // 2. Magnetic Buttons
     const magneticBtns = document.querySelectorAll('.magnetic');

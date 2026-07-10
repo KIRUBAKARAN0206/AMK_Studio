@@ -4,56 +4,11 @@
 
 /* --- Custom Cursor --- */
 body.premium-page {
-    cursor: none; /* Hide default cursor */
     background-color: #050505;
     overflow-x: hidden;
 }
 
-.luxury-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
-}
 
-.luxury-cursor.active {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(212, 175, 55, 0.1);
-    border-color: rgba(212, 175, 55, 0.8);
-    backdrop-filter: blur(2px);
-}
-
-.luxury-cursor-dot {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    background-color: #D4AF37;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s;
-}
-
-.luxury-cursor-dot.active {
-    transform: translate(-50%, -50%) scale(0);
-}
-
-/* Hide custom cursor on mobile */
-@media (max-width: 768px) {
-    body.premium-page { cursor: auto; }
-    .luxury-cursor, .luxury-cursor-dot { display: none; }
-}
 
 /* --- Typography & Colors --- */
 .gold-text {
