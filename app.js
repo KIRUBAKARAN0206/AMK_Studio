@@ -182,7 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const name = document.getElementById('booking-name').value;
             const email = document.getElementById('booking-email').value;
+            const phone = document.getElementById('booking-phone').value;
             const date = document.getElementById('booking-date').value;
+            const slotSelect = document.getElementById('booking-slot');
+            const slot = slotSelect ? slotSelect.options[slotSelect.selectedIndex].text : 'Not specified';
+            const details = document.getElementById('booking-details').value;
+            
             const categorySelect = document.getElementById('booking-category');
             let category = categorySelect ? categorySelect.options[categorySelect.selectedIndex].text : 'Service';
             
@@ -191,20 +196,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (otherVal) category = otherVal;
             }
 
-            if (name && email && date) {
+            if (name && email && phone && date) {
                 const submitBtn = bookingForm.querySelector('.submit-btn');
                 const originalText = submitBtn.innerHTML;
 
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = 'Sending Slot Request... <i class="fa-solid fa-circle-notch fa-spin"></i>';
 
+                // Format WhatsApp message
+                const waMessage = `*New Booking Request!* 📸\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Service:* ${category}\n*Date:* ${date}\n*Slot:* ${slot}\n*Details:* ${details}`;
+                const waUrl = `https://wa.me/916379776173?text=${encodeURIComponent(waMessage)}`;
+
                 setTimeout(() => {
-                    submitBtn.innerHTML = 'Pre-booked! <i class="fa-solid fa-check"></i>';
-                    submitBtn.style.background = '#10B981';
+                    submitBtn.innerHTML = 'Redirecting to WhatsApp... <i class="fa-brands fa-whatsapp"></i>';
+                    submitBtn.style.background = '#25D366';
                     submitBtn.style.color = '#FFF';
 
                     // Update modal message & display it
-                    successModalMsg.innerHTML = `Thank you, <strong>${name}</strong>! Your pre-booking request for <strong>"${category}"</strong> on <strong>${date}</strong> has been registered successfully. Our team will contact you shortly.`;
+                    successModalMsg.innerHTML = `Thank you, <strong>${name}</strong>! We are redirecting you to WhatsApp to confirm your booking for <strong>"${category}"</strong> on <strong>${date}</strong>.`;
                     successModal.classList.add('active');
                     
                     bookingForm.reset();
@@ -212,13 +221,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         otherCategoryRow.style.display = 'none';
                     }
                     
+                    // Open WhatsApp
+                    window.open(waUrl, '_blank');
+                    
                     setTimeout(() => {
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalText;
                         submitBtn.style.background = '';
                         submitBtn.style.color = '';
                     }, 3000);
-                }, 1500);
+                }, 1000);
             }
         });
 
