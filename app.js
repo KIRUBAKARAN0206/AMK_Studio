@@ -149,6 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const successModalMsg = document.getElementById('successModalMsg');
     const closeModalBtn = document.getElementById('closeModalBtn');
 
+    // Restrict booking date to today and future dates
+    const bookingDateInput = document.getElementById('booking-date');
+    if (bookingDateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        bookingDateInput.setAttribute('min', `${yyyy}-${mm}-${dd}`);
+    }
+
     if (bookingForm && successModal) {
         bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
