@@ -488,3 +488,25 @@ body.premium-page {
     .workflow-step { width: 100%; left: 0 !important; padding-left: 80px !important; padding-right: 0 !important; text-align: left !important; }
     .timeline-dot { left: 20px !important; right: auto !important; }
 }
+
+/* Fix mobile hero heading visibility */
+@media (max-width: 768px) {
+  .hero-title, .hero-title-line {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    background-clip: initial !important;
+    -webkit-background-clip: initial !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    mix-blend-mode: normal !important;
+    filter: none !important;
+    position: relative;
+    z-index: 5;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
+  }
+  .gold-text {
+    color: #D4AF37 !important;
+    -webkit-text-fill-color: #D4AF37 !important;
+  }
+}
