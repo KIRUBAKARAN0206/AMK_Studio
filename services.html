@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 </head>
 <body class="services-layout">
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="logo.png" alt="AMF Studio Logo" class="preloader-logo">
+    </div>
     <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Header Navigation -->
@@ -46,192 +50,64 @@
         <p class="page-banner-desc">Explore the creative capabilities we bring to the table to elevate your brand and content.</p>
     </section>
 
-    <!-- Services Detail Section -->
-    <section class="services">
-        <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-            <!-- Service 1: Photography -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fa-solid fa-camera"></i>
+    <!-- Luxury Minimalist Services Section -->
+    <section class="luxury-services-section">
+        <div class="luxury-container">
+            <div class="luxury-grid">
+                
+                <!-- Service 1: Brand Ad Shoot -->
+                <div class="luxury-card attractive-card" style="--accent: #fff;" onclick="openServiceModal('brand-ad')">
+                    <div class="luxury-card-bg" style="background-image: url('https://images.unsplash.com/photo-1601049676869-702ea24cfd58?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="luxury-card-content">
+                        <div class="luxury-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                        <h2 class="luxury-title">Brand Ad Shoot</h2>
+                        <p class="luxury-desc" style="color: rgba(255,255,255,0.9);">High-converting commercials & reels tailored for modern brands.</p>
+                        <div class="luxury-btn-wrapper">
+                            <span class="luxury-btn-text">Explore Packages <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="service-title">Professional Photography</h3>
-                <p class="service-desc">High-end shoots captured with state-of-the-art camera systems. We specialize in candid moments, weddings, and custom baby shoots.</p>
-                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
-                    <li>Candid & Portrait Photography</li>
-                    <li>Wedding & Couple Shoots</li>
-                    <li>Baby Shoot & Family Portraits</li>
-                </ul>
-            </div>
 
-            <!-- Service 2: Videography -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fa-solid fa-video"></i>
+                <!-- Service 2: Event -->
+                <div class="luxury-card attractive-card" style="--accent: #fff;" onclick="openServiceModal('event')">
+                    <div class="luxury-card-bg" style="background-image: url('https://images.unsplash.com/photo-1540039155732-d688758b73f8?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="luxury-card-content">
+                        <div class="luxury-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <h2 class="luxury-title">Event</h2>
+                        <p class="luxury-desc" style="color: rgba(255,255,255,0.9);">Comprehensive visual coverage for high-profile live events & concerts.</p>
+                        <div class="luxury-btn-wrapper">
+                            <span class="luxury-btn-text">Explore Packages <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="service-title">Cinematic Videography</h3>
-                <p class="service-desc">Cinematic filming and high-definition video captures. From cinematic storytelling and teasers to commercial video editing.</p>
-                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
-                    <li>Cinematic Wedding Film Production</li>
-                    <li>Documentaries & Event Teasers</li>
-                    <li>High-end Post Color Grading</li>
-                </ul>
-            </div>
 
-            <!-- Service 3: Brand Ad Shoots -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fa-solid fa-bullhorn"></i>
+                <!-- Service 3: Wedding Function -->
+                <div class="luxury-card attractive-card" style="--accent: #fff;" onclick="openServiceModal('wedding')">
+                    <div class="luxury-card-bg" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop');"></div>
+                    <div class="luxury-card-content">
+                        <div class="luxury-icon"><i class="fa-solid fa-ring"></i></div>
+                        <h2 class="luxury-title">Wedding</h2>
+                        <p class="luxury-desc" style="color: rgba(255,255,255,0.9);">Cinematic wedding coverage framing memories you'll cherish forever.</p>
+                        <div class="luxury-btn-wrapper">
+                            <span class="luxury-btn-text">Explore Packages <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="service-title">Brand Ad Shoots</h3>
-                <p class="service-desc">We conceptualize, shoot, and edit commercial advertisements and product promos that boost conversion rates and build brand identity.</p>
-                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
-                    <li>Commercial Concept Writing</li>
-                    <li>Product Videography & Ads</li>
-                    <li>Digital Ad Campaigns</li>
-                </ul>
-            </div>
 
-            <!-- Service 4: Event Campaigns -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fa-solid fa-calendar-day"></i>
-                </div>
-                <h3 class="service-title">Event Coverage</h3>
-                <p class="service-desc">Comprehensive visual coverage for concerts, festivals, corporate launchings, and large-scale public events.</p>
-                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
-                    <li>Concert & Music Festival Filming</li>
-                    <li>Corporate Events & Launchings</li>
-                    <li>Live Stage Multi-Cam setups</li>
-                </ul>
-            </div>
-
-            <!-- Service 5: Strategy & Planning -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fa-solid fa-compass-drafting"></i>
-                </div>
-                <h3 class="service-title">Strategy & Planning</h3>
-                <p class="service-desc">We structure customized brand strategies, complete content calendars, and target audience maps designed to grow your digital footprint.</p>
-                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
-                    <li>Brand Positioning & Strategy</li>
-                    <li>Weekly Content Calendars</li>
-                    <li>Platform Growth Mapping</li>
-                </ul>
-            </div>
-
-            <!-- Service 6: Post Reels & Development -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fa-solid fa-photo-film"></i>
-                </div>
-                <h3 class="service-title">Post Reels & Development</h3>
-                <p class="service-desc">From shooting high-quality vertical videos to scripting, caption drafting, editing, and publishing engaging Instagram Reels & YouTube Shorts.</p>
-                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
-                    <li>High-impact Reels & Shorts Shooting</li>
-                    <li>Professional Video Editing & VFX</li>
-                    <li>Caption & Hashtag Development</li>
-                </ul>
-            </div>
-
-            <!-- Service 7: Market Research -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <h3 class="service-title">Market Research</h3>
-                <p class="service-desc">We perform detailed competitor tracking, monitor algorithm changes, and analyze trending audio to optimize your post performance.</p>
-                <ul style="color: var(--text-muted); margin-bottom: 20px; list-style-position: inside; font-size: 0.9rem;">
-                    <li>Competitor Analysis & Reports</li>
-                    <li>Trending Audio & Sound Search</li>
-                    <li>Audience Performance Analytics</li>
-                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="bg-alt">
-        <div class="section-header reveal">
-            <span class="section-subtitle">Flexible Rates</span>
-            <h2 class="section-title">Transparent Package Pricing</h2>
-        </div>
-
-        <div class="pricing-grid">
-            <!-- Plan 1 -->
-            <div class="pricing-card reveal">
-                <h3 class="pricing-plan">Creative Starter</h3>
-                <div class="pricing-price">&#8377;9,999<span style="font-size: 0.9rem; color: var(--text-muted);"> / session</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fa-solid fa-check"></i> 2-Hour Studio Booking</li>
-                    <li><i class="fa-solid fa-check"></i> 15 High-res Edited Photos</li>
-                    <li><i class="fa-solid fa-check"></i> Basic Color Correction</li>
-                    <li><i class="fa-solid fa-check"></i> 1 Audio Vocal Track Mix</li>
-                    <li><i class="fa-solid fa-check"></i> Raw Deliverables Access</li>
-                </ul>
-                <a href="contact.html" class="btn-secondary" style="display: block; width: 100%; text-align: center;">Choose Plan</a>
-            </div>
-
-            <!-- Plan 2 -->
-            <div class="pricing-card popular reveal">
-                <div class="pricing-badge">Popular</div>
-                <h3 class="pricing-plan">Production Pro</h3>
-                <div class="pricing-price">&#8377;24,999<span style="font-size: 0.9rem; color: #000;"> / project</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fa-solid fa-check"></i> Full Day Studio Access</li>
-                    <li><i class="fa-solid fa-check"></i> Unlimited Camera bays & Rig</li>
-                    <li><i class="fa-solid fa-check"></i> Cinematic Video Color Grading</li>
-                    <li><i class="fa-solid fa-check"></i> Multitrack Audio Mixing & Mastering</li>
-                    <li><i class="fa-solid fa-check"></i> 2 rounds of edits & corrections</li>
-                </ul>
-                <a href="contact.html" class="btn-primary" style="display: block; width: 100%; text-align: center; color: #000;">Book Production</a>
-            </div>
-
-            <!-- Plan 3 -->
-            <div class="pricing-card reveal">
-                <h3 class="pricing-plan">Commercial Master</h3>
-                <div class="pricing-price">&#8377;49,999<span style="font-size: 0.9rem; color: var(--text-muted);"> / project</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fa-solid fa-check"></i> Multi-day Booking slots</li>
-                    <li><i class="fa-solid fa-check"></i> Dedicated Director & Sound Lead</li>
-                    <li><i class="fa-solid fa-check"></i> Advanced VFX & Sound Design</li>
-                    <li><i class="fa-solid fa-check"></i> Broadcast/DCP Ready Deliverables</li>
-                    <li><i class="fa-solid fa-check"></i> Lifetime archive storage support</li>
-                </ul>
-                <a href="contact.html" class="btn-secondary" style="display: block; width: 100%; text-align: center;">Contact Sales</a>
+    <!-- Service Details Modal -->
+    <div id="serviceModal" class="booking-success-modal">
+        <div class="modal-card" style="max-width: 950px; max-height: 90vh; overflow-y: auto; overflow-x: hidden; text-align: left; position: relative; padding: 40px 30px;">
+            <button id="closeServiceModal" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2rem; color: var(--text-muted); cursor: pointer; transition: color 0.3s; z-index: 10;">&times;</button>
+            <div id="modal-content" style="text-align: center;"></div>
+            <div style="margin-top: 35px; text-align: center;">
+                <a href="booking.html" class="btn-primary" style="display: inline-block;">Book This Service</a>
             </div>
         </div>
-    </section>
-
-    <!-- Gear inventory section -->
-    <section>
-        <div class="section-header reveal">
-            <span class="section-subtitle">Our Arsenal</span>
-            <h2 class="section-title">State-of-the-Art Gear & Facilities</h2>
-        </div>
-
-        <div class="gear-grid">
-            <div class="gear-card reveal">
-                <i class="fa-solid fa-camera-retro"></i>
-                <h4 class="gear-name">Sony FX6 / RED Komodo</h4>
-                <p class="gear-type">Cinema Video Rigs</p>
-            </div>
-            <div class="gear-card reveal">
-                <i class="fa-solid fa-microphone"></i>
-                <h4 class="gear-name">Neumann U87 Ai</h4>
-                <p class="gear-type">Vocal Studio Microphone</p>
-            </div>
-            <div class="gear-card reveal">
-                <i class="fa-solid fa-sliders"></i>
-                <h4 class="gear-name">SSL Origin Analog</h4>
-                <p class="gear-type">Mixing Sound Console</p>
-            </div>
-            <div class="gear-card reveal">
-                <i class="fa-solid fa-computer"></i>
-                <h4 class="gear-name">DaVinci Advanced Panel</h4>
-                <p class="gear-type">Post-Color Suite</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -247,18 +123,18 @@
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Our Services</h3>
                 <ul class="footer-links">
-                    <li><a href="services.html">Strategy & Planning</a></li>
-                    <li><a href="services.html">Post Reels & Dev</a></li>
-                    <li><a href="services.html">Market Research</a></li>
+                    <li><a href="services.html">Brand Ad Shoot</a></li>
+                    <li><a href="services.html">Event Coverage</a></li>
+                    <li><a href="services.html">Wedding Function</a></li>
                 </ul>
             </div>
             <div class="footer-col">

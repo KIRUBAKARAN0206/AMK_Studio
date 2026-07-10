@@ -1,3 +1,13 @@
+// Preloader Logic
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 800); // 800ms delay to ensure the logo is visible
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Navigation Menu Toggle for Mobile View
     const menuToggle = document.getElementById('menu-toggle');
@@ -238,5 +248,166 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         setTimeout(type, 1000);
+    }
+});
+
+// Service Modal Logic
+const serviceDetails = {
+    'brand-ad': {
+        title: 'Brand Ad Shoot',
+        icon: '<div class="success-icon-wrapper" style="box-shadow: 0 0 20px rgba(255, 0, 127, 0.4); background: rgba(255, 0, 127, 0.1);"><i class="fa-solid fa-bullhorn" style="color: var(--accent-primary); font-size: 2.5rem;"></i></div>',
+        content: `
+            <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #fff;">Brand Ad Shoot</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">We design and shoot high-converting commercial advertisements, social media reels, and e-commerce product videos tailored for modern brands aiming to dominate their market.</p>
+            <h4 style="margin-bottom: 15px; color: var(--accent-primary); text-align: left; font-size: 1.2rem;">What's Included in this Service:</h4>
+            <ul style="color: var(--text-muted); list-style: none; padding: 0; text-align: left;">
+                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-primary); margin-top: 4px;"></i> <span>Commercial Concept Writing & Creative Storyboarding</span></li>
+                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-primary); margin-top: 4px;"></i> <span>Professional Product Videography with Cinematic Lighting</span></li>
+                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-primary); margin-top: 4px;"></i> <span>Advanced Visual Effects (VFX) & Custom Sound Design</span></li>
+                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-primary); margin-top: 4px;"></i> <span>Multiple aspect ratios optimized for Reels, Shorts, and TV</span></li>
+            </ul>
+        `
+    },
+    'event': {
+        title: 'Event Coverage',
+        icon: '<div class="success-icon-wrapper" style="box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); background: rgba(0, 240, 255, 0.1);"><i class="fa-solid fa-calendar-check" style="color: var(--accent-secondary); font-size: 2.5rem;"></i></div>',
+        content: `
+            <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #fff;">Event Coverage</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">Comprehensive visual coverage for high-profile music concerts, product launches, corporate meets, and live stage events. We capture the energy and exact essence of your event.</p>
+            <h4 style="margin-bottom: 15px; color: var(--accent-secondary); text-align: left; font-size: 1.2rem;">What's Included in this Service:</h4>
+            <ul style="color: var(--text-muted); list-style: none; padding: 0; text-align: left;">
+                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-secondary); margin-top: 4px;"></i> <span>Multi-Camera Live Event Filming Setup</span></li>
+                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-secondary); margin-top: 4px;"></i> <span>High-Resolution Candid & Press Photography</span></li>
+                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-secondary); margin-top: 4px;"></i> <span>Cinematic Highlight Teasers & Full-length Aftermovies</span></li>
+                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-secondary); margin-top: 4px;"></i> <span>Professional Live Audio Recording from Mixing Console</span></li>
+            </ul>
+        `
+    },
+    'wedding': {
+        title: 'Wedding Function',
+        icon: '<div class="success-icon-wrapper" style="box-shadow: 0 0 20px rgba(124, 58, 237, 0.4); background: rgba(124, 58, 237, 0.1);"><i class="fa-solid fa-ring" style="color: #7C3AED; font-size: 2.5rem;"></i></div>',
+        content: `
+            <h3 style="margin-bottom: 15px; font-size: 2rem; color: #fff;">Wedding Packages</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">Cinematic wedding coverage capturing your special moments beautifully. Choose a package that suits your grand day.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left; margin-bottom: 20px;">
+                
+                <!-- Package 35k -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 15px; padding: 25px;">
+                    <div style="color: #7C3AED; font-size: 1.6rem; font-weight: bold; margin-bottom: 15px;">₹35,000/-</div>
+                    <ul style="color: #fff; font-size: 0.95rem; list-style: none; padding: 0; margin-bottom: 15px;">
+                        <li><i class="fa-solid fa-camera" style="color: #10B981; margin-right: 8px;"></i> Traditional Photo</li>
+                        <li><i class="fa-solid fa-video" style="color: #10B981; margin-right: 8px;"></i> Traditional Video</li>
+                    </ul>
+                    <h5 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 0.95rem;">Deliverables:</h5>
+                    <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Unlimited photos</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Album 36x12 (280) - 80 Pages</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> HQ video with pendrive</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Family Photo Frame - 2nos</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Couple Photo Frame - 1no</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Calendar - 1no</li>
+                    </ul>
+                </div>
+
+                <!-- Package 55k -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(124, 58, 237, 0.5); border-radius: 15px; padding: 25px;">
+                    <div style="color: #7C3AED; font-size: 1.6rem; font-weight: bold; margin-bottom: 15px;">₹55,000/-</div>
+                    <ul style="color: #fff; font-size: 0.95rem; list-style: none; padding: 0; margin-bottom: 15px;">
+                        <li><i class="fa-solid fa-camera" style="color: #10B981; margin-right: 8px;"></i> Traditional Photo</li>
+                        <li><i class="fa-solid fa-video" style="color: #10B981; margin-right: 8px;"></i> Traditional Video</li>
+                        <li><i class="fa-solid fa-camera-retro" style="color: #10B981; margin-right: 8px;"></i> Candid Photo</li>
+                        <li><i class="fa-solid fa-heart" style="color: #10B981; margin-right: 8px;"></i> Post Wedding Shoot</li>
+                    </ul>
+                    <h5 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 0.95rem;">Deliverables:</h5>
+                    <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Unlimited photos</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Album 36x12 (330) - 100 Pages</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> HQ video with pendrive</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Family Photo Frame - 2no's</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Couple Photo Frame - 1no</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Calendar - 2no's</li>
+                    </ul>
+                </div>
+
+                <!-- Package 85k -->
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(124, 58, 237, 0.7); border-radius: 15px; padding: 25px; box-shadow: 0 0 20px rgba(124,58,237,0.15);">
+                    <div style="color: #7C3AED; font-size: 1.6rem; font-weight: bold; margin-bottom: 15px;">₹85,000/-</div>
+                    <ul style="color: #fff; font-size: 0.95rem; list-style: none; padding: 0; margin-bottom: 15px;">
+                        <li><i class="fa-solid fa-camera" style="color: #10B981; margin-right: 8px;"></i> Traditional Photo</li>
+                        <li><i class="fa-solid fa-video" style="color: #10B981; margin-right: 8px;"></i> Traditional Video</li>
+                        <li><i class="fa-solid fa-camera-retro" style="color: #10B981; margin-right: 8px;"></i> Candid Photo</li>
+                        <li><i class="fa-solid fa-film" style="color: #10B981; margin-right: 8px;"></i> Candid Video</li>
+                        <li><i class="fa-solid fa-heart" style="color: #10B981; margin-right: 8px;"></i> Post Wedding Shoot</li>
+                    </ul>
+                    <h5 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 0.95rem;">Deliverables:</h5>
+                    <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Unlimited photos</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Album 36x12 (350) - 100 Pages</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Candid Album (150) - 50 Pages</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> HQ video with pendrive</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Candid Video</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Family Frame (2), Couple Frame (1)</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Calendar - 2no's</li>
+                    </ul>
+                </div>
+
+                <!-- Package 1.15L -->
+                <div style="background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 1); border-radius: 15px; padding: 25px; box-shadow: 0 0 30px rgba(124,58,237,0.3); position: relative;">
+                    <div style="position: absolute; top: -12px; right: 20px; background: #7C3AED; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">Premium</div>
+                    <div style="color: #7C3AED; font-size: 1.6rem; font-weight: bold; margin-bottom: 15px;">₹1,15,000/-</div>
+                    <ul style="color: #fff; font-size: 0.95rem; list-style: none; padding: 0; margin-bottom: 15px;">
+                        <li><i class="fa-solid fa-camera" style="color: #10B981; margin-right: 8px;"></i> Traditional Photo</li>
+                        <li><i class="fa-solid fa-video" style="color: #10B981; margin-right: 8px;"></i> Traditional Video</li>
+                        <li><i class="fa-solid fa-camera-retro" style="color: #10B981; margin-right: 8px;"></i> Candid Photo</li>
+                        <li><i class="fa-solid fa-film" style="color: #10B981; margin-right: 8px;"></i> Candid Video</li>
+                        <li><i class="fa-solid fa-plane-up" style="color: #10B981; margin-right: 8px;"></i> Drone</li>
+                        <li><i class="fa-solid fa-heart" style="color: #10B981; margin-right: 8px;"></i> Pre & Post Wedding Shoot</li>
+                    </ul>
+                    <h5 style="color: var(--accent-primary); margin-bottom: 10px; font-size: 0.95rem;">Deliverables:</h5>
+                    <ul style="color: var(--text-muted); font-size: 0.9rem; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Unlimited photos</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Album 36x12 (400) - 120 Pages</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Candid Album (180) - 60 Pages</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> HQ video with pendrive</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Candid Video</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Family Frame (2), Couple Frame (1)</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Calendar - 2no's</li>
+                        <li style="margin-bottom: 6px;"><i class="fa-solid fa-gift" style="margin-right: 8px;"></i> Mug - 1no</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div style="background: rgba(255, 204, 0, 0.1); border: 1px solid rgba(255, 204, 0, 0.3); padding: 15px; border-radius: 10px; text-align: left; font-size: 0.9rem; color: #fff;">
+                <i class="fa-solid fa-circle-info" style="color: #FFC107; margin-right: 8px;"></i> <strong>Note:</strong> Transport and Accommodation charges are extra.
+            </div>
+        `
+    }
+};
+
+window.openServiceModal = function(serviceId) {
+    const modal = document.getElementById('serviceModal');
+    const contentDiv = document.getElementById('modal-content');
+    if (modal && contentDiv && serviceDetails[serviceId]) {
+        contentDiv.innerHTML = serviceDetails[serviceId].icon + serviceDetails[serviceId].content;
+        modal.classList.add('active');
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const closeServiceModal = document.getElementById('closeServiceModal');
+    const serviceModal = document.getElementById('serviceModal');
+    if (closeServiceModal && serviceModal) {
+        closeServiceModal.addEventListener('click', () => {
+            serviceModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside of the card
+        serviceModal.addEventListener('click', (e) => {
+            if (e.target === serviceModal) {
+                serviceModal.classList.remove('active');
+            }
+        });
     }
 });
