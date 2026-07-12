@@ -1,20 +1,3 @@
-// Initialize Lenis Smooth Scroll
-const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smooth: true,
-    mouseMultiplier: 1,
-});
-
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
-// Register GSAP ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Magnetic Buttons
@@ -208,3 +191,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+

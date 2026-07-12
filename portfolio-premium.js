@@ -1,23 +1,7 @@
 // Portfolio Premium JS
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Lenis Smooth Scroll
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smooth: true,
-    });
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Register GSAP ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
-
-    // 2. Parallax Hero Image
+// 2. Parallax Hero Image
     gsap.to('.portfolio-hero-bg', {
         yPercent: 30,
         ease: "none",
@@ -168,3 +152,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+

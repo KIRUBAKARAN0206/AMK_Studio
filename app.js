@@ -8,6 +8,27 @@ window.addEventListener('load', () => {
     }
 });
 
+// Global Lenis Smooth Scroll Initialization
+if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+        mouseMultiplier: 1,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    
+    // Register GSAP ScrollTrigger if GSAP exists
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Navigation Menu Toggle for Mobile View
     const menuToggle = document.getElementById('menu-toggle');
@@ -183,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('booking-name').value;
             const email = document.getElementById('booking-email').value;
             const phone = document.getElementById('booking-phone').value;
+            const location = document.getElementById('booking-location').value;
             const date = document.getElementById('booking-date').value;
             const slotSelect = document.getElementById('booking-slot');
             const slot = slotSelect ? slotSelect.options[slotSelect.selectedIndex].text : 'Not specified';
@@ -196,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (otherVal) category = otherVal;
             }
 
-            if (name && email && phone && date) {
+            if (name && email && phone && location && date) {
                 const submitBtn = bookingForm.querySelector('.submit-btn');
                 const originalText = submitBtn.innerHTML;
 
@@ -204,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.innerHTML = 'Sending Slot Request... <i class="fa-solid fa-circle-notch fa-spin"></i>';
 
                 // Format WhatsApp message
-                const waMessage = `AMF Studio - New Booking Request\n\nA new booking has been submitted.\n\nCustomer Details\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nService: ${category}\nPreferred Date: ${date}\nPreferred Time: ${slot}\n\nMessage: ${details}`;
+                const waMessage = `AMF Studio - New Booking Request\n\nA new booking has been submitted.\n\nCustomer Details\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nLocation: ${location}\n\nService: ${category}\nPreferred Date: ${date}\nPreferred Time: ${slot}\n\nMessage: ${details}`;
                 const waUrl = `https://wa.me/916379776173?text=${encodeURIComponent(waMessage)}`;
 
                 setTimeout(() => {
