@@ -4,6 +4,11 @@ import viteCompression from 'vite-plugin-compression';
 
 export default defineConfig({
   build: {
+    cssCodeSplit: true,
+    sourcemap: false,
+    modulePreload: {
+      polyfill: true
+    },
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -21,6 +26,9 @@ export default defineConfig({
           if (id.includes('lenis')) {
             return 'vendor-lenis';
           }
+          if (id.includes('node_modules')) {
+            return 'vendor-core';
+          }
         }
       }
     },
@@ -28,7 +36,11 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
+        drop_debugger: true,
+        passes: 2
+      },
+      format: {
+        comments: false
       }
     }
   },

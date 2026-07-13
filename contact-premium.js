@@ -1,25 +1,7 @@
 // Contact Premium JS
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Lenis Smooth Scroll
-    // Check if Lenis is already initialized to prevent duplication (though it shouldn't be for this page)
-    if (typeof Lenis !== 'undefined') {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smooth: true,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-    }
-
-    // Register GSAP ScrollTrigger
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
 
         // 2. Parallax Hero Image
         gsap.to('.hero-hub-bg', {
