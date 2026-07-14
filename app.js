@@ -454,6 +454,42 @@ const serviceDetails = {
                 <i class="fa-solid fa-circle-info" style="color: #FFC107; margin-right: 8px;"></i> <strong>Note:</strong> Transport and Accommodation charges are extra.
             </div>
         `
+    },
+    'other-events': {
+        title: 'Other Events & Commercial',
+        icon: '<div class="success-icon-wrapper" style="box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1);"><i class="fa-solid fa-camera-retro" style="color: #a855f7; font-size: 2.5rem;"></i></div>',
+        content: `
+            <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #fff;">Other Events & Commercial Shoots</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">We offer professional photography and videography for a wide range of personal events and commercial needs.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; text-align: left; margin-bottom: 20px;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="margin-bottom: 15px; color: #a855f7; font-size: 1.2rem;"><i class="fa-solid fa-cake-candles" style="margin-right: 8px;"></i> Events</h4>
+                    <ul style="color: var(--text-muted); list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Baby Shower</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Puberty Function</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Ear Piercing Ceremony</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Housewarming</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Naming Ceremony</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Anniversary</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Birthday Party</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Corporate Events</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="margin-bottom: 15px; color: #a855f7; font-size: 1.2rem;"><i class="fa-solid fa-store" style="margin-right: 8px;"></i> Commercial</h4>
+                    <ul style="color: var(--text-muted); list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Product Photography</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Food Photography</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Jewellery Photography</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Clothing Brand Shoot</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> E-commerce Photography</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Real Estate Photography</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Hotel & Resort Photography</li>
+                    </ul>
+                </div>
+            </div>
+        `
     }
 };
 
