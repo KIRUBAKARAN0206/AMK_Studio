@@ -8,26 +8,20 @@ window.addEventListener('load', () => {
     }
 });
 
-// Global Lenis Smooth Scroll Initialization
-if (typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smooth: true,
-        mouseMultiplier: 1,
-    });
+// Global Scroll Setup
+window.lenis = null; // Lenis is disabled to allow native free scrolling across all pages
 
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    
-    // Register GSAP ScrollTrigger if GSAP exists
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-    }
+// Register GSAP ScrollTrigger if GSAP exists
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
 }
+
+// Refresh ScrollTrigger after all resources (images/fonts) finish loading
+window.addEventListener('load', () => {
+    if (typeof ScrollTrigger !== 'undefined') {
+        setTimeout(() => ScrollTrigger.refresh(), 100);
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Navigation Menu Toggle for Mobile View
@@ -53,22 +47,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Sticky Navbar Styling on Scroll
+    // 2. Sticky Navbar Styling on Scroll (Optimized)
     const navbar = document.getElementById('navbar');
-    // 3. Navbar scroll effect
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        if (!scrollTimeout) {
-            scrollTimeout = requestAnimationFrame(() => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
+    if (navbar) {
+        const updateNavbar = (scrollY) => {
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        };
+
+        if (window.lenis) {
+            window.lenis.on('scroll', (e) => updateNavbar(e.scroll));
+            updateNavbar(window.lenis.scroll);
+        } else {
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                if (!scrollTimeout) {
+                    scrollTimeout = requestAnimationFrame(() => {
+                        updateNavbar(window.scrollY);
+                        scrollTimeout = null;
+                    });
                 }
-                scrollTimeout = null;
-            });
+            }, { passive: true });
+            updateNavbar(window.scrollY);
         }
-    }, { passive: true });
+    }
 
     // 3. Scroll Reveal Animation (Intersection Observer)
     const revealElements = document.querySelectorAll('.reveal');
@@ -264,21 +269,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 9. Scroll Progress Indicator Bar
+    // 9. Scroll Progress Indicator Bar (Optimized)
     const progressBar = document.getElementById('scrollProgress');
     if (progressBar) {
-        let pbScrollTimeout;
-        window.addEventListener('scroll', () => {
-            if (!pbScrollTimeout) {
-                pbScrollTimeout = requestAnimationFrame(() => {
-                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scrolled = (winScroll / height) * 100;
-                    progressBar.style.width = scrolled + '%';
-                    pbScrollTimeout = null;
-                });
-            }
-        }, { passive: true });
+        if (window.lenis) {
+            window.lenis.on('scroll', (e) => {
+                progressBar.style.width = (e.progress * 100) + '%';
+            });
+        } else {
+            let pbScrollTimeout;
+            window.addEventListener('scroll', () => {
+                if (!pbScrollTimeout) {
+                    pbScrollTimeout = requestAnimationFrame(() => {
+                        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+                        progressBar.style.width = scrolled + '%';
+                        pbScrollTimeout = null;
+                    });
+                }
+            }, { passive: true });
+        }
     }
 
     // 10. Typewriter Text Rotator Logic
