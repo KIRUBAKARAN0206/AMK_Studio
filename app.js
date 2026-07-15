@@ -603,9 +603,13 @@ const serviceDetails = {
                                 <td style="padding: 12px 15px;">20 &times; 30</td>
                                 <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">2:3</td>
                             </tr>
-                            <tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                                 <td style="padding: 12px 15px;">24 &times; 36</td>
                                 <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">2:3</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 15px; font-weight: 600;">Etc...</td>
+                                <td style="padding: 12px 15px;"></td>
                             </tr>
                         </tbody>
                     </table>
