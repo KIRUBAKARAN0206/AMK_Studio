@@ -188,16 +188,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const categorySelect = document.getElementById('booking-category');
     const otherCategoryRow = document.getElementById('other-category-row');
     const otherCategoryInput = document.getElementById('booking-other-category');
+    const brandAdRow = document.getElementById('brand-ad-category-row');
+    const brandAdInput = document.getElementById('booking-brand-ad-item');
+    const eventRow = document.getElementById('event-category-row');
+    const eventInput = document.getElementById('booking-event-item');
 
-    if (categorySelect && otherCategoryRow && otherCategoryInput) {
+    if (categorySelect) {
         categorySelect.addEventListener('change', (e) => {
-            if (e.target.value === 'others') {
-                otherCategoryRow.style.display = 'grid';
-                otherCategoryInput.setAttribute('required', 'true');
-            } else {
+            // Reset all sub-categories first
+            if(otherCategoryRow) {
                 otherCategoryRow.style.display = 'none';
                 otherCategoryInput.removeAttribute('required');
                 otherCategoryInput.value = '';
+            }
+            if(brandAdRow) {
+                brandAdRow.style.display = 'none';
+                brandAdInput.removeAttribute('required');
+                brandAdInput.value = '';
+            }
+            if(eventRow) {
+                eventRow.style.display = 'none';
+                eventInput.removeAttribute('required');
+                eventInput.value = '';
+            }
+
+            // Show relevant sub-category
+            if (e.target.value === 'others' && otherCategoryRow) {
+                otherCategoryRow.style.display = 'grid';
+                otherCategoryInput.setAttribute('required', 'true');
+            } else if (e.target.value === 'brand-ad' && brandAdRow) {
+                brandAdRow.style.display = 'grid';
+                brandAdInput.setAttribute('required', 'true');
+            } else if (e.target.value === 'event' && eventRow) {
+                eventRow.style.display = 'grid';
+                eventInput.setAttribute('required', 'true');
             }
         });
     }
@@ -221,6 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (categorySelect && categorySelect.value === 'others') {
                 const otherVal = document.getElementById('booking-other-category').value;
                 if (otherVal) category = otherVal;
+            } else if (categorySelect && categorySelect.value === 'brand-ad') {
+                const brandVal = document.getElementById('booking-brand-ad-item').value;
+                if (brandVal) category = 'Brand Ad Shoot - ' + brandVal;
+            } else if (categorySelect && categorySelect.value === 'event') {
+                const eventVal = document.getElementById('booking-event-item').value;
+                if (eventVal) category = 'Event Coverage - ' + eventVal;
             }
 
             if (name && email && phone && location && date) {
@@ -246,6 +276,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     bookingForm.reset();
                     if (otherCategoryRow) {
                         otherCategoryRow.style.display = 'none';
+                    }
+                    if (brandAdRow) {
+                        brandAdRow.style.display = 'none';
+                    }
+                    if (eventRow) {
+                        eventRow.style.display = 'none';
                     }
                     
                     // Open WhatsApp
@@ -336,13 +372,19 @@ const serviceDetails = {
         content: `
             <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #fff;">Brand Ad Shoot</h3>
             <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">We design and shoot high-converting commercial advertisements, social media reels, and e-commerce product videos tailored for modern brands aiming to dominate their market.</p>
-            <h4 style="margin-bottom: 15px; color: var(--accent-primary); text-align: left; font-size: 1.2rem;">What's Included in this Service:</h4>
-            <ul style="color: var(--text-muted); list-style: none; padding: 0; text-align: left;">
-                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-primary); margin-top: 4px;"></i> <span>Commercial Concept Writing & Creative Storyboarding</span></li>
-                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-primary); margin-top: 4px;"></i> <span>Professional Product Videography with Cinematic Lighting</span></li>
-                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-primary); margin-top: 4px;"></i> <span>Advanced Visual Effects (VFX) & Custom Sound Design</span></li>
-                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-primary); margin-top: 4px;"></i> <span>Multiple aspect ratios optimized for Reels, Shorts, and TV</span></li>
-            </ul>
+            
+            <div style="text-align: left; margin-bottom: 20px; background: rgba(255, 0, 127, 0.05); border: 1px solid rgba(255, 0, 127, 0.1); border-radius: 12px; padding: 25px;">
+                <h4 style="margin-bottom: 20px; color: var(--accent-primary); font-size: 1.3rem; text-align: center;"><i class="fa-solid fa-store" style="margin-right: 10px;"></i>Commercial Shoots</h4>
+                <ul style="color: var(--text-muted); list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 10px;"></i> Product Photography</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 10px;"></i> Food Photography</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 10px;"></i> Jewellery Photography</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 10px;"></i> Clothing Brand Shoot</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 10px;"></i> E-commerce Photography</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 10px;"></i> Real Estate Photography</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-primary); margin-right: 10px;"></i> Hotel & Resort Photography</li>
+                </ul>
+            </div>
         `
     },
     'event': {
@@ -351,13 +393,20 @@ const serviceDetails = {
         content: `
             <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #fff;">Event Coverage</h3>
             <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">Comprehensive visual coverage for high-profile music concerts, product launches, corporate meets, and live stage events. We capture the energy and exact essence of your event.</p>
-            <h4 style="margin-bottom: 15px; color: var(--accent-secondary); text-align: left; font-size: 1.2rem;">What's Included in this Service:</h4>
-            <ul style="color: var(--text-muted); list-style: none; padding: 0; text-align: left;">
-                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-secondary); margin-top: 4px;"></i> <span>Multi-Camera Live Event Filming Setup</span></li>
-                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-secondary); margin-top: 4px;"></i> <span>High-Resolution Candid & Press Photography</span></li>
-                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-secondary); margin-top: 4px;"></i> <span>Cinematic Highlight Teasers & Full-length Aftermovies</span></li>
-                <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"><i class="fa-solid fa-circle-check" style="color: var(--accent-secondary); margin-top: 4px;"></i> <span>Professional Live Audio Recording from Mixing Console</span></li>
-            </ul>
+            
+            <div style="text-align: left; margin-bottom: 20px; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.1); border-radius: 12px; padding: 25px;">
+                <h4 style="margin-bottom: 20px; color: var(--accent-secondary); font-size: 1.3rem; text-align: center;"><i class="fa-solid fa-cake-candles" style="margin-right: 10px;"></i>Events We Cover</h4>
+                <ul style="color: var(--text-muted); list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-secondary); margin-right: 10px;"></i> Baby Shower</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-secondary); margin-right: 10px;"></i> Puberty Function</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-secondary); margin-right: 10px;"></i> Ear Piercing Ceremony</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-secondary); margin-right: 10px;"></i> Housewarming</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-secondary); margin-right: 10px;"></i> Naming Ceremony</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-secondary); margin-right: 10px;"></i> Anniversary</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-secondary); margin-right: 10px;"></i> Birthday Party</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: var(--accent-secondary); margin-right: 10px;"></i> Corporate Events</li>
+                </ul>
+            </div>
         `
     },
     'wedding': {
@@ -466,38 +515,100 @@ const serviceDetails = {
             </div>
         `
     },
-    'other-events': {
-        title: 'Other Events & Commercial',
-        icon: '<div class="success-icon-wrapper" style="box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1);"><i class="fa-solid fa-camera-retro" style="color: #a855f7; font-size: 2.5rem;"></i></div>',
+    'flex': {
+        title: 'Flex Printing',
+        icon: '<div class="success-icon-wrapper" style="box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.1);"><i class="fa-solid fa-print" style="color: #a855f7; font-size: 2.5rem;"></i></div>',
         content: `
-            <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #fff;">Other Events & Commercial Shoots</h3>
-            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">We offer professional photography and videography for a wide range of personal events and commercial needs.</p>
+            <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #fff;">Flex Design & Printing</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">We provide high-quality, durable flex printing services for banners, hoardings, and promotional backdrops tailored to your branding needs.</p>
             
-            <div style="display: flex; flex-wrap: wrap; gap: 30px; text-align: left; margin-bottom: 20px;">
-                <div style="flex: 1; min-width: 250px;">
-                    <h4 style="margin-bottom: 15px; color: #a855f7; font-size: 1.2rem;"><i class="fa-solid fa-cake-candles" style="margin-right: 8px;"></i> Events</h4>
-                    <ul style="color: var(--text-muted); list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Baby Shower</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Puberty Function</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Ear Piercing Ceremony</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Housewarming</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Naming Ceremony</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Anniversary</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Birthday Party</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Corporate Events</li>
-                    </ul>
-                </div>
-                <div style="flex: 1; min-width: 250px;">
-                    <h4 style="margin-bottom: 15px; color: #a855f7; font-size: 1.2rem;"><i class="fa-solid fa-store" style="margin-right: 8px;"></i> Commercial</h4>
-                    <ul style="color: var(--text-muted); list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Product Photography</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Food Photography</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Jewellery Photography</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Clothing Brand Shoot</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> E-commerce Photography</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Real Estate Photography</li>
-                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 8px;"></i> Hotel & Resort Photography</li>
-                    </ul>
+            <div style="text-align: left; margin-bottom: 20px; background: rgba(168, 85, 247, 0.05); border: 1px solid rgba(168, 85, 247, 0.1); border-radius: 12px; padding: 25px;">
+                <h4 style="margin-bottom: 20px; color: #a855f7; font-size: 1.3rem; text-align: center;"><i class="fa-solid fa-star" style="margin-right: 10px;"></i>Features & Offerings</h4>
+                <ul style="color: var(--text-muted); list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 10px;"></i> Custom Banner Designs</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 10px;"></i> High-Resolution Print Quality</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 10px;"></i> Weather-Resistant Materials</li>
+                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 10px;"></i> Event Backdrops & Hoardings</li>
+                </ul>
+            </div>
+        `
+    },
+    'frames': {
+        title: 'Photo Frames',
+        icon: '<div class="success-icon-wrapper" style="box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);"><i class="fa-solid fa-image" style="color: #10b981; font-size: 2.5rem;"></i></div>',
+        content: `
+            <h3 style="margin-bottom: 15px; font-size: 1.8rem; color: #fff;">Custom Photo Frames</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">Preserve your most cherished memories with our premium custom framing services, available in various sizes and elegant styles.</p>
+            
+            <div style="text-align: left; margin-bottom: 20px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.1); border-radius: 12px; padding: 25px;">
+                <h4 style="margin-bottom: 20px; color: #10b981; font-size: 1.3rem; text-align: center;"><i class="fa-solid fa-ruler-combined" style="margin-right: 10px;"></i>Available Photo Sizes</h4>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; color: var(--text-muted); font-size: 0.95rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid rgba(16, 185, 129, 0.2); color: #fff;">
+                                <th style="padding: 12px 15px;">Photo Size (inches)</th>
+                                <th style="padding: 12px 15px;">Aspect Ratio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">6 &times; 4</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">3:2</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">8 &times; 6</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">4:3</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">10 &times; 8</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">5:4</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">12 &times; 8</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">3:2</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">12 &times; 10</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">6:5</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">10 &times; 15</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">2:3</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">12 &times; 15</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">4:5</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">12 &times; 18</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">2:3</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">12 &times; 24</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">1:2</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">20 &times; 16</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">5:4</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">24 &times; 16</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">3:2</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">24 &times; 18</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">4:3</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">20 &times; 30</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">2:3</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 15px;">24 &times; 36</td>
+                                <td style="padding: 12px 15px; color: #10b981; font-weight: 600;">2:3</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         `

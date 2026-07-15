@@ -83,14 +83,45 @@
                         <div class="form-group">
                             <select id="booking-category" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;" required>
                                 <option value="" disabled selected hidden>Select Service Category</option>
-                                <option value="wedding">Wedding Photography & Videography</option>
-                                <option value="pre-wedding">Pre-Wedding Shoot</option>
-                                <option value="event">Event Production</option>
-                                <option value="brand">Brand Shoot</option>
-                                <option value="commercial">Commercial Advertisement</option>
-                                <option value="product">Product Photography</option>
-                                <option value="music">Music Video Production</option>
+                                <option value="brand-ad">Brand Ad Shoot</option>
+                                <option value="event">Event Coverage</option>
+                                <option value="wedding">Wedding Function</option>
+                                <option value="flex">Flex Printing</option>
+                                <option value="frames">Photo Frames</option>
                                 <option value="others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hidden field for 'Brand Ad Shoot' items -->
+                    <div class="form-group-row" id="brand-ad-category-row" style="display: none; animation-delay: 0.35s;">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <select id="booking-brand-ad-item" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;">
+                                <option value="" disabled selected hidden>Select Commercial Shoot Type</option>
+                                <option value="Product Photography">Product Photography</option>
+                                <option value="Food Photography">Food Photography</option>
+                                <option value="Jewellery Photography">Jewellery Photography</option>
+                                <option value="Clothing Brand Shoot">Clothing Brand Shoot</option>
+                                <option value="E-commerce Photography">E-commerce Photography</option>
+                                <option value="Real Estate Photography">Real Estate Photography</option>
+                                <option value="Hotel & Resort Photography">Hotel & Resort Photography</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hidden field for 'Event Coverage' items -->
+                    <div class="form-group-row" id="event-category-row" style="display: none; animation-delay: 0.35s;">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <select id="booking-event-item" class="form-input" style="background: rgba(10, 8, 19, 0.9); color: #FFF; height: 58px;">
+                                <option value="" disabled selected hidden>Select Event Type</option>
+                                <option value="Baby Shower">Baby Shower</option>
+                                <option value="Puberty Function">Puberty Function</option>
+                                <option value="Ear Piercing Ceremony">Ear Piercing Ceremony</option>
+                                <option value="Housewarming">Housewarming</option>
+                                <option value="Naming Ceremony">Naming Ceremony</option>
+                                <option value="Anniversary">Anniversary</option>
+                                <option value="Birthday Party">Birthday Party</option>
+                                <option value="Corporate Events">Corporate Events</option>
                             </select>
                         </div>
                     </div>
