@@ -523,13 +523,63 @@ const serviceDetails = {
             <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 25px;">We provide high-quality, durable flex printing services for banners, hoardings, and promotional backdrops tailored to your branding needs.</p>
             
             <div style="text-align: left; margin-bottom: 20px; background: rgba(168, 85, 247, 0.05); border: 1px solid rgba(168, 85, 247, 0.1); border-radius: 12px; padding: 25px;">
-                <h4 style="margin-bottom: 20px; color: #a855f7; font-size: 1.3rem; text-align: center;"><i class="fa-solid fa-star" style="margin-right: 10px;"></i>Features & Offerings</h4>
-                <ul style="color: var(--text-muted); list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 10px;"></i> Custom Banner Designs</li>
-                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 10px;"></i> High-Resolution Print Quality</li>
-                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 10px;"></i> Weather-Resistant Materials</li>
-                    <li style="display: flex; align-items: center;"><i class="fa-solid fa-check" style="color: #a855f7; margin-right: 10px;"></i> Event Backdrops & Hoardings</li>
-                </ul>
+                <h4 style="margin-bottom: 20px; color: #a855f7; font-size: 1.3rem; text-align: center;"><i class="fa-solid fa-ruler-combined" style="margin-right: 10px;"></i>Available Flex Sizes</h4>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left; color: var(--text-muted); font-size: 0.95rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid rgba(168, 85, 247, 0.2); color: #fff;">
+                                <th style="padding: 12px 15px;">Size (Feet)</th>
+                                <th style="padding: 12px 15px;">Size (Inches)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">2 &times; 3 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">24 &times; 36 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">3 &times; 4 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">36 &times; 48 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">4 &times; 4 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">48 &times; 48 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">4 &times; 6 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">48 &times; 72 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">5 &times; 8 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">60 &times; 96 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">6 &times; 8 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">72 &times; 96 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">8 &times; 10 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">96 &times; 120 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">10 &times; 12 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">120 &times; 144 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">10 &times; 20 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">120 &times; 240 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">20 &times; 10 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">240 &times; 120 in</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 12px 15px;">40 &times; 20 ft</td>
+                                <td style="padding: 12px 15px; color: #a855f7; font-weight: 600;">480 &times; 240 in</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         `
     },
